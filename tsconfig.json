@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "@roots/bud/config/tsconfig.json",
+    "@roots/sage/config/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "paths": {
+      "@fonts/*": ["./fonts/*"],
+      "@images/*": ["./images/*"],
+      "@scripts/*": ["./scripts/*"],
+      "@styles/*": ["./styles/*"]
+    },
+    "outDir": "./public",
+    "noEmit": false,
+    "types": [
+      "@roots/bud",
+      "@roots/bud-typescript",
+      "webpack/module",
+      "@roots/bud-react",
+      "@roots/bud-postcss",
+      "@roots/bud-preset-recommend",
+      "@roots/bud-preset-wordpress",
+      "@roots/sage"
+    ]
+  },
+  "include": ["resources"],
+  "exclude": ["node_modules", "public"]
+}

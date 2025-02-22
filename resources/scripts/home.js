@@ -1,7 +1,11 @@
+import domReady from '@roots/sage/client/dom-ready';
+
 /**
- * @see {@link https://bud.js.org/extensions/bud-preset-wordpress/editor-integration/filters}
+ * Application entrypoint
  */
-roots.register.filters('@scripts/filters');
+domReady(async () => {
+  // ...
+});
 
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}

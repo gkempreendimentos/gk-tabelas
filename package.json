@@ -20,8 +20,25 @@
   },
   "devDependencies": {
     "@roots/bud": "6.20.0",
-    "@roots/bud-tailwindcss": "6.20.0",
-    "@roots/sage": "6.20.0"
+    "@roots/bud-eslint": "^6.20.0",
+    "@roots/bud-prettier": "^6.20.0",
+    "@roots/bud-sass": "^6.20.0",
+    "@roots/bud-stylelint": "^6.20.0",
+    "@roots/bud-swc": "^6.20.0",
+    "@roots/bud-typescript": "^6.20.0",
+    "@roots/bud-vue": "^6.24.0",
+    "@roots/eslint-config": "^6.20.0",
+    "@roots/sage": "6.20.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^9.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@vueuse/core": "^12.4.0",
+    "normalize.css": "^8.0.1",
+    "@fancyapps/ui": "^5.0.36",
+    "axios": "^1.6.8",
+    "vue": "^3.5.13",
+    "oh-vue-icons": "^1.0.0-rc3"
+  }
 }
