@@ -1,0 +1,111 @@
+:root {
+	--color-primary: #56C5D0;
+	--color-primary-rgb: 86,197,208;
+	--color-primary-contrast: #000000;
+	--color-primary-contrast-rgb: 0,0,0;
+	--color-primary-shade: #4cadb7;
+	--color-primary-tint: #67cbd5;
+
+	--color-secondary: #D06258;
+	--color-secondary-rgb: 208,98,88;
+	--color-secondary-contrast: #000000;
+	--color-secondary-contrast-rgb: 0,0,0;
+	--color-secondary-shade: #b7564d;
+	--color-secondary-tint: #d57269;
+
+	--color-tertiary: #6258D0;
+	--color-tertiary-rgb: 98,88,208;
+	--color-tertiary-contrast: #ffffff;
+	--color-tertiary-contrast-rgb: 255,255,255;
+	--color-tertiary-shade: #564db7;
+	--color-tertiary-tint: #7269d5;
+
+	--color-success: #44C48C;
+	--color-success-rgb: 68,196,140;
+	--color-success-contrast: #000000;
+	--color-success-contrast-rgb: 0,0,0;
+	--color-success-shade: #3cac7b;
+	--color-success-tint: #57ca98;
+
+	--color-warning: #CBA934;
+	--color-warning-rgb: 203,169,52;
+	--color-warning-contrast: #000000;
+	--color-warning-contrast-rgb: 0,0,0;
+	--color-warning-shade: #b3952e;
+	--color-warning-tint: #d0b248;
+
+	--color-danger: #C70101;
+	--color-danger-rgb: 199,1,1;
+	--color-danger-contrast: #ffffff;
+	--color-danger-contrast-rgb: 255,255,255;
+	--color-danger-shade: #af0101;
+	--color-danger-tint: #cd1a1a;
+
+	--color-light: #fff;
+	--color-light-rgb: 255,255,255;
+	--color-light-contrast: #000000;
+	--color-light-contrast-rgb: 0,0,0;
+	--color-light-shade: #e0e0e0;
+	--color-light-tint: #ffffff;
+
+	--color-medium: #838989;
+	--color-medium-rgb: 131,137,137;
+	--color-medium-contrast: #000000;
+	--color-medium-contrast-rgb: 0,0,0;
+	--color-medium-shade: #737979;
+	--color-medium-tint: #8f9595;
+
+	--color-dark: #081314;
+	--color-dark-rgb: 8,19,20;
+	--color-dark-contrast: #ffffff;
+	--color-dark-contrast-rgb: 255,255,255;
+	--color-dark-shade: #071112;
+	--color-dark-tint: #212b2c;
+
+  --font-base: "Maven Pro", sans-serif;
+	--transition: .3s ease-out;
+	--radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  font-family: var(--font-base);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: normal;
+  overflow-x: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}

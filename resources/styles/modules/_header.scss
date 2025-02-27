@@ -1,0 +1,13 @@
+.header {
+  @include wrapper;
+  padding-top: 32px;
+  padding-bottom: 32px;
+
+  &-logo {
+    transition: opacity var(--transition);
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.warningbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px dashed var(--color-primary);
+  background-color: rgba(var(--color-primary-rgb), 10%);
+  color: var(--color-primary);
+
+  p {
+    margin: 0;
+  }
+}

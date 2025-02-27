@@ -15,15 +15,14 @@ use function Roots\bundle;
  */
 add_action('wp_enqueue_scripts', function () {
     bundle('app')->enqueue();
-}, 100);
 
-/**
- * Register the theme assets with the block editor.
- *
- * @return void
- */
-add_action('enqueue_block_editor_assets', function () {
-    bundle('editor')->enqueue();
+    if (is_page_template('template-homepage.blade.php')) {
+        bundle('home')->enqueue();
+    }
+
+    if (is_single()) {
+        bundle('single')->enqueue();
+    }
 }, 100);
 
 /**
