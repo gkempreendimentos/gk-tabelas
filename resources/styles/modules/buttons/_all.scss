@@ -1,0 +1,13 @@
+.button {
+  appearance: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  text-decoration: none;
+  color: var(--color, var(--color-dark));
+}

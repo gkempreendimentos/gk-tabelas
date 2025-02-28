@@ -1,0 +1,14 @@
+.list.-enterprises {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-rows: max-content;
+  gap: 16px;
+
+  @media (width >= 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 8px), 1fr));
+  }
+
+  @media (width >= 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

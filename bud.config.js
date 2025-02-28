@@ -36,5 +36,5 @@ export default async (app) => {
   app
     .setUrl('http://localhost:3000')
     .setProxyUrl('http://gkempreendimentos.local')
-    .watch(['resources/views', 'app']);
+    .watch(['resources/**/*', 'app']);
 };

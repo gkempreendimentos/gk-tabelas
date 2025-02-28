@@ -1,10 +1,11 @@
 import domReady from '@roots/sage/client/dom-ready';
+import {cardEnterprise} from './modules/card/enterprise';
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  // ...
+  cardEnterprise();
 });
 
 /**

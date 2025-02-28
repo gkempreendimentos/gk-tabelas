@@ -87,6 +87,24 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color, var(--color-dark-tint));
+
+  &:hover {
+    background-color: rgba(255 255 255 / 10%);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255 255 255 / 30%);
+	border-radius: 24px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -108,4 +126,10 @@ body {
     clip: auto;
     white-space: normal;
   }
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
