@@ -51,6 +51,7 @@ class Homepage extends Composer
         $query->the_post();
 
         $enterprises[] = [
+          'id' => get_the_ID(),
           'title' => get_the_title(),
           'permalink' => get_the_permalink(),
           'image' => get_the_post_thumbnail_url(),

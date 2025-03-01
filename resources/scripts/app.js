@@ -1,10 +1,11 @@
 import domReady from '@roots/sage/client/dom-ready';
+import {toggleModal} from './utils/toggle';
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  // ...
+  toggleModal();
 });
 
 /**

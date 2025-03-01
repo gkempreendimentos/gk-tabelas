@@ -1,18 +1,24 @@
+import {toggleModal} from '../../utils/toggle';
+
 export const cardEnterprise = () => {
-  const toggleMaterial = () => {
-    const $button = document.querySelectorAll('[data-id="materials"]');
+  const toggleMaterials = () => {
+    const $button = document.querySelectorAll(
+      '.card.-enterprise [data-toggle]',
+    );
 
     $button.forEach((button) => {
       button.addEventListener('click', function (e) {
-        const $el = e.target;
-        const $card = $el.closest('.card');
+        const $el = e.target.closest('.button');
+        const $label = $el.querySelector('span');
 
-        $card.classList.toggle('-opened');
+        $label.textContent = toggleModal($el.dataset.toggle)
+          ? 'Ocultar materiais'
+          : 'Ver materiais';
       });
     });
   };
 
   (() => {
-    toggleMaterial();
+    toggleMaterials();
   })();
 };

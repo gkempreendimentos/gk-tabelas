@@ -17,8 +17,6 @@
     overflow: auto;
     background-color: var(--color);
     transform: translateX(-100%);
-    opacity: 0;
-    transition: transform var(--transition), opacity var(--transition);
 
     li {
       padding: 12px 0;
@@ -74,19 +72,18 @@
         color: var(--color-dark);
       }
 
-      i {
+      &[data-toggle] i {
         transform: scaleX(-1);
       }
     }
   }
 
-  &.-opened {
+  &:has(.-opened) {
     .card-materials {
       transform: translateX(0);
-      opacity: 1;
     }
 
-    .button i {
+    .button[data-toggle] i {
       transform: scaleX(1);
     }
   }

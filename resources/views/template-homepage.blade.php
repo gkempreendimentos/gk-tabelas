@@ -17,7 +17,7 @@
       <li>
         <article class="card -enterprise" style="--color: {{ $item['color'] }}">
           @if ($item['materials'])
-            <ul class="card-materials">
+            <ul class="card-materials" data-modal="materials-{{$item['id']}}">
               @foreach ($item['materials'] as $material)
                 <li>
                   <a href="{{ $material['url'] }}" target="_blank" rel="noopener noreferrer">
@@ -38,7 +38,7 @@
           </a>
           <footer class="card-footer">
             @if ($item['materials'])
-              <button class="button" data-id="materials">
+              <button class="button" data-toggle="materials-{{$item['id']}}">
                 <i aria-hidden="true" class="material-symbols-outlined">
                   menu_open
                 </i>
