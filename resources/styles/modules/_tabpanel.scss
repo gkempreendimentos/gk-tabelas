@@ -1,0 +1,33 @@
+.tabpanel {
+  width: 100%;
+
+  &-tabs {
+    display: flex;
+    margin-top: 1px;
+    gap: 1px;
+
+    &__button {
+      width: 100%;
+      height: 48px;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--color-light);
+      background-color: var(--color-medium);
+
+      &.-selected {
+        background-color: var(--color-dark);
+      }
+    }
+  }
+
+  &-content {
+    .tab {
+      @include wrapper;
+      display: none;
+
+      &.-opened {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
 import domReady from '@roots/sage/client/dom-ready';
+import {tabpanel} from './modules/tabpanel';
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  // ...
+  tabpanel();
 });
 
 /**

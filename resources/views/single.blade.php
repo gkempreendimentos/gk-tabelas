@@ -10,6 +10,7 @@
       <button class="tabpanel-tabs__button -selected" data-toggle="completo">Completo</button>
       <button class="tabpanel-tabs__button" data-toggle="resumido">Resumido</button>
     </div>
+    
     <div class="tabpanel-content">
       <div class="tab -opened" data-modal="completo">
         <section class="map">
