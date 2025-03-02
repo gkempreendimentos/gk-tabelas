@@ -1,12 +1,13 @@
 @import 'base/import';
 @import 'modules/forms/all';
+@import 'modules/forms/filter';
 @import 'modules/section';
 @import 'modules/banners/single';
 @import 'modules/tabpanel';
 
 .main {
   overflow: hidden;
-  background-color: var(--color-light);
+  background-color: var(--color-light-tint);
   border-radius: var(--radius) var(--radius) 0 0;
-  border: 1px solid var(--color-light);
+  border: 1px solid var(--color-light-tint);
 }

@@ -14,21 +14,25 @@
     <div class="tabpanel-content">
       <div class="tab -opened" data-modal="completo">
         <section class="map">
-          <form class="form">
+          <form class="form -filter">
             <div class="form-control">
               <label for="" class="form-label">Selecione a torre</label>
-              <select class="form-select">
-                <option value="Torre A">Torre A</option>
-                <option value="Torre B">Torre B</option>
-              </select>
+              <div class="form-select">
+                <select>
+                  <option value="Torre A">Torre A</option>
+                  <option value="Torre B">Torre B</option>
+                </select>
+              </div>
             </div>
       
             <div class="form-control">
               <label for="" class="form-label">Selecione o tipo de imóvel</label>
-              <select class="form-select">
-                <option value="Convencional">Convencional</option>
-                <option value="Cobertura">Cobertura</option>
-              </select>
+              <div class="form-select">
+                <select>
+                  <option value="Convencional">Convencional</option>
+                  <option value="Cobertura">Cobertura</option>
+                </select>
+              </div>
             </div>
           </form>
         </section>

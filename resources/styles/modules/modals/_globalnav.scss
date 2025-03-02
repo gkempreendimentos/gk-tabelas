@@ -25,7 +25,7 @@
     height: 100%;
     overflow-y: auto;
     background-color: var(--color-dark-tint);
-    color: var(--color-light);
+    color: var(--color-light-tint);
     transform: translateX(100%);
     transition: transform var(--transition);
   }
@@ -53,7 +53,7 @@
     
     a {
       text-decoration: none;
-      color: var(--color-light);
+      color: var(--color-light-tint);
 
       &:hover {
         background-color: rgba(255, 255, 255, .1);
@@ -85,9 +85,9 @@
       --border-color: transparent;
       --hover-border-color:  transparent;
       --active-border-color:  transparent;
-      --color: var(--color-light);
-      --hover-color: var(--color-light);
-      --active-color: var(--color-light);
+      --color: var(--color-light-tint);
+      --hover-color: var(--color-light-tint);
+      --active-color: var(--color-light-tint);
       --bg-color: transparent;
       --hover-bg-color: rgba(255,255,255,.1);
       --active-bg-color: rgba(255,255,255,.15);

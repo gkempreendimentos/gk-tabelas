@@ -2,8 +2,8 @@
   width: 100%;
   height: 48px;
   border-radius: var(--radius);
-  border: 1px solid var(--border-color, var(--color-light));
-  color: var(--color, var(--color-light));
+  border: 1px solid var(--border-color, var(--color-light-tint));
+  color: var(--color, var(--color-light-tint));
   background-color: var(--bg-color, transparent);
   font-size: .875rem;
   font-weight: 500;
