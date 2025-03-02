@@ -14,6 +14,9 @@
   <body @php(body_class())>
     @php(wp_body_open())
 
+    @include('partials.icons')
+    @include('sections.globalnav')
+
     <div id="app">
       <a class="sr-only focus:not-sr-only" href="#main">
         {{ __('Skip to content') }}

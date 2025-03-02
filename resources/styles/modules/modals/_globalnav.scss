@@ -1,0 +1,108 @@
+.modal.-globalnav {
+  .modal-header {
+    @include wrapper;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &__title {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+
+  .modal-wrapper {
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--color-dark-tint);
+    color: var(--color-light);
+    transform: translateX(100%);
+    transition: transform var(--transition);
+  }
+
+  .modal-content {
+    flex: 1;
+  }
+
+  .globalnav-menu {
+    a,
+    span {
+      @include wrapper;
+      
+      display: block;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+    
+    span {
+      text-transform: uppercase;
+      opacity: .5;
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--color-light);
+
+      &:hover {
+        background-color: rgba(255, 255, 255, .1);
+      }
+    }
+  }
+
+  .modal-footer {
+    @include wrapper;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    .button.-whatsapp {
+      --border-color: #25d366;
+      --hover-border-color: #{darken(#25d366, 10%)};
+      --active-border-color: #{darken(#25d366, 20%)};
+      --color: #111b21;
+      --hover-color: #111b21;
+      --active-color: #111b21;
+      --bg-color: #25d366;
+      --hover-bg-color: #{darken(#25d366, 10%)};
+      --active-bg-color: #{darken(#25d366, 20%)};
+    }
+
+    .button.-site {
+      --border-color: transparent;
+      --hover-border-color:  transparent;
+      --active-border-color:  transparent;
+      --color: var(--color-light);
+      --hover-color: var(--color-light);
+      --active-color: var(--color-light);
+      --bg-color: transparent;
+      --hover-bg-color: rgba(255,255,255,.1);
+      --active-bg-color: rgba(255,255,255,.15);
+    }
+  }
+
+  &.-closing {
+    .modal-wrapper {
+      transform: translateX(100%);
+    }
+  }
+
+  &.-opened {
+    .modal-wrapper {
+      transform: translateX(0);
+    }
+  }
+}

@@ -3,8 +3,12 @@
 @import 'base/import';
 @import 'base/base';
 
+@import 'modules/modals/all';
+@import 'modules/modals/globalnav';
 @import 'modules/header';
 @import 'modules/buttons/all';
+@import 'modules/buttons/icon';
+@import 'modules/buttons/full';
 @import 'modules/lists/all';
 @import 'modules/cards/all';
 @import 'modules/footer';

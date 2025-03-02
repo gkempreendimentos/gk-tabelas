@@ -3,5 +3,9 @@
     <img src="@asset('images/logo.png')" width="78" height="56" alt="GK Empreendimentos">
   </a>
 
-  <button data-open="globalnav"></button>
+  <button class="button -icon" data-toggle="globalnav">
+    <i aria-hidden="true" class="material-symbols-outlined">
+      menu
+    </i>
+  </button>
 </header>

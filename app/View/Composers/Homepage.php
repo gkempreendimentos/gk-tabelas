@@ -12,7 +12,8 @@ class Homepage extends Composer
    * @var array
    */
   protected static $views = [
-      'template-homepage',
+    'template-homepage',
+    'sections.globalnav'
   ];
 
   /**

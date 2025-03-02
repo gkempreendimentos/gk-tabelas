@@ -1,0 +1,26 @@
+.button.-full {
+  width: 100%;
+  height: 48px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color, var(--color-light));
+  color: var(--color, var(--color-light));
+  background-color: var(--bg-color, transparent);
+  font-size: .875rem;
+  font-weight: 500;
+  
+  @media (width >= $phablet) {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    border-color: var(--hover-border-color);
+    color: var(--hover-color);
+    background-color: var(--hover-bg-color);
+  }
+
+  &:active {
+    border-color: var(--active-border-color);
+    color: var(--active-color);
+    background-color: var(--active-bg-color);
+  }
+}
