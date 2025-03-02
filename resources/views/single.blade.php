@@ -50,7 +50,7 @@
           </thead>
           <tbody>
             <tr>
-              <td data-colname="Apartamento">803B</td>
+              <td class="column-primary" data-colname="Apartamento">803B</td>
               <td data-colname="Preço">R$ 3.337.000,00</td>
               <td data-colname="Metragem">172,03</td>
               <td data-colname="Quartos">3 suítes</td>

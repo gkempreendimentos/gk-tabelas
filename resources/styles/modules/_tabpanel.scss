@@ -22,7 +22,6 @@
 
   &-content {
     .tab {
-      @include wrapper;
       display: none;
 
       &.-opened {

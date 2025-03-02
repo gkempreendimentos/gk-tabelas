@@ -1,4 +1,5 @@
 .form.-filter {
+  @include wrapper;
   margin: 32px 0;
   
   @media (width >= $tablet) {

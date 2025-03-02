@@ -1,0 +1,122 @@
+.table {
+  width: 100%;
+  margin: 32px 0;
+  text-align: left;
+  border-collapse: collapse;
+  
+  @media (width >= $tablet) {
+    margin: 48px 0;
+  }
+
+  th,
+  td {
+    @include wrapper;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    @media (width < $tablet) {
+      &:not(:first-child) {
+        display: none;
+      }
+    } 
+
+    @media (width >= $tablet) {
+      font-size: 1.125rem;
+    }
+  }
+
+  th {
+    font-weight: 500;
+    color: var(--color-medium-shade);
+    background-color: var(--color-light-shade);
+    border-bottom: 1px solid var(--color-light-shade);
+  }
+
+  td {
+    @media (width >= $tablet) {
+      border-bottom: 1px solid var(--color-light-shade);
+    }
+
+    a {
+      color: var(--color-dark);
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  tr.-expanded {
+    @media (width < $tablet) {
+      background-color: var(--color-light-shade);
+
+      td {
+        display: block;
+
+        &.column-primary {
+          background-color: var(--color-light);
+
+          &::after {
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
+
+        &:not(.column-primary) {
+          padding: 12px 160px;
+        }
+      }
+    }
+  }
+
+  td {
+    &:not(.column-primary)::before {
+      @media (width < $tablet) {
+        content: attr(data-colname);
+        position: absolute;
+        left: 32px;
+        display: block;
+        width: 33%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--color-medium-shade);
+        pointer-events: none;
+      }
+
+      @media (width < $phablet) {
+        content: attr(data-colname);
+        left: 24px;
+      }
+    }
+
+    &.column-primary {
+      @media (width < $tablet) {
+        position: relative;
+        display: block;
+        font-size: 1.125rem;
+        font-weight: 500;
+        cursor: pointer;
+        border-bottom: 1px solid var(--color-light-shade);
+
+        &:hover {
+          background-color: var(--color-light);
+        }
+      }
+
+      &::after {
+        @extend .material-symbols-outlined;
+
+        @media (width < $tablet) {
+          content: '\e313';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 16px;
+          color: var(--color-medium);
+          pointer-events: none;
+        }
+      }
+    }
+    
+  }
+}
