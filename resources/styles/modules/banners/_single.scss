@@ -1,0 +1,23 @@
+.banner.-single {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color);
+
+  @media (width >= $tablet) {
+    height: 240px;
+  }
+
+  img {
+    display: block;
+    width: 240px;
+    max-width: calc(100% - 80px);
+    height: auto;
+
+    @media (width >= $tablet) {
+      width: 320px;
+    }
+  }
+}

@@ -1,6 +1,11 @@
 @import 'base/import';
+@import 'modules/forms/all';
+@import 'modules/section';
+@import 'modules/banners/single';
 
 .main {
+  overflow: hidden;
   background-color: var(--color-light);
   border-radius: var(--radius) var(--radius) 0 0;
+  border: 1px solid var(--color-light);
 }

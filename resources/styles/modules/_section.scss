@@ -1,0 +1,9 @@
+.section {
+  @include wrapper;
+  
+  &-title {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
