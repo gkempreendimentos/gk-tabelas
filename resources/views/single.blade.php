@@ -65,7 +65,7 @@
   @if ($data['materials'])
   <section class="section -materials">
     <h3 class="section-title">Download dos materiais</h3>
-    <ul class="card-materials" data-modal="materials-{{$item['id']}}">
+    <ul class="list -materials">
       @foreach ($data['materials'] as $material)
         <li>
           <a href="{{ $material['url'] }}" target="_blank" rel="noopener noreferrer">
