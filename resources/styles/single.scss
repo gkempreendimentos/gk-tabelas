@@ -6,9 +6,11 @@
 @import 'modules/tabpanel';
 @import 'modules/lists/materials';
 @import 'modules/table';
+@import 'modules/pagination';
 
 .main {
   overflow: hidden;
+  padding-bottom: 48px;
   background-color: var(--color-light-tint);
   border-radius: var(--radius) var(--radius) 0 0;
   border: 1px solid var(--color-light-tint);

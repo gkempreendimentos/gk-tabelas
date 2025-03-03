@@ -1,4 +1,22 @@
 export const tabpanel = () => {
+  const goToTab = (tab) => {
+    const $buttons = document.querySelectorAll('.tabpanel [data-toggle]');
+    const $tabs = document.querySelectorAll('.tabpanel [data-modal]');
+    const $tab = document.querySelector(`.tabpanel [data-modal="${tab}"]`);
+    const $button = document.querySelector(`.tabpanel [data-toggle=${tab}]`);
+
+    $buttons.forEach((btn) => {
+      btn.classList.remove('-selected');
+    });
+    $tabs.forEach((tab) => {
+      tab.classList.remove('-opened');
+    });
+
+    $tab.classList.add('-opened');
+    $button.classList.add('-selected');
+    location.hash = tab;
+  };
+
   const toggleTabs = () => {
     const $buttons = document.querySelectorAll('.tabpanel [data-toggle]');
 
@@ -6,20 +24,14 @@ export const tabpanel = () => {
       button.addEventListener('click', function (e) {
         const $el = e.target;
         const id = $el.dataset.toggle;
-        const $tabs = document.querySelectorAll('.tabpanel [data-modal]');
-        const $tab = document.querySelector(`.tabpanel [data-modal="${id}"]`);
 
-        $buttons.forEach((btn) => {
-          btn.classList.remove('-selected');
-        });
-        $tabs.forEach((tab) => {
-          tab.classList.remove('-opened');
-        });
-
-        $el.classList.add('-selected');
-        $tab.classList.add('-opened');
+        goToTab(id);
       });
     });
+
+    if (location.hash) {
+      goToTab(location.hash.split('?')[0].replace('#', ''));
+    }
   };
 
   (() => {

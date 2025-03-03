@@ -37,8 +37,6 @@ class Single extends Composer
   {
     $id = get_the_ID();
 
-    var_dump(get_field('materials', $id));
-
     return [
       'title' => get_the_title($id),
       'permalink' => get_the_permalink($id),
@@ -56,8 +54,12 @@ class Single extends Composer
   {
     $api_key = get_field('api_google', 'options');
     $spreadsheet_id = get_field('spreadsheet_id');
-    $range = 'A1:E100';
+    
+    $page = request()->get('pagina', 1);
+    $itemsPerPage = request()->get('limit', 10);
+    $filter = request()->get('filter', '');
 
+    $range = 'A1:E100';
     $url = "https://sheets.googleapis.com/v4/spreadsheets/{$spreadsheet_id}/values/{$range}?key={$api_key}";
 
     $response = wp_remote_get($url);
@@ -79,9 +81,19 @@ class Single extends Composer
       return array_combine($headers, $row);
     }, $data['values']);
 
+    $totalItems = count($formattedData);
+    $offset = ($page - 1) * $itemsPerPage;
+    $paginatedData = array_slice($formattedData, $offset, $itemsPerPage);
+
     return [
       'headers' => $headers,
-      'data' => $formattedData
+      'data' => $paginatedData,
+      'pagination' => [
+        'total' => $totalItems,
+        'currentPage' => $page,
+        'itemsPerPage' => $itemsPerPage,
+        'totalPages' => ceil($totalItems / $itemsPerPage),
+      ]
     ];
   }
 }

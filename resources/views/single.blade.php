@@ -64,6 +64,22 @@
               @endforeach
             </tbody>
           </table>
+
+          <div class="pagination">
+            @if ($table['pagination']['currentPage'] > 1)
+                <a href="?pagina={{ $table['pagination']['currentPage'] - 1 }}&limit={{ $table['pagination']['itemsPerPage'] }}#resumido" class="button -icon" aria-title="Página anterior"><span aria-hidden="true" class="material-symbols-outlined">
+                  chevron_left
+                  </span></a>
+            @endif
+        
+            <span>Página {{ $table['pagination']['currentPage'] }} de {{ $table['pagination']['totalPages'] }}</span>
+        
+            @if ($table['pagination']['currentPage'] < $table['pagination']['totalPages'])
+                <a href="?pagina={{ $table['pagination']['currentPage'] + 1 }}&limit={{ $table['pagination']['itemsPerPage'] }}#resumido" class="button -icon" aria-title="Próxima página"><span aria-hidden="true" class="material-symbols-outlined">
+                  chevron_right
+                  </span></a>
+            @endif
+          </div>
         </div>
       </div>
     </div>

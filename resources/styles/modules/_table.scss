@@ -1,17 +1,18 @@
 .table {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0;
+  
   @media (width >= $tablet) {
     @include wrapper;
+    margin: 48px 0;
   }
 
   table {
     width: 100%;
-    margin: 32px 0;
     text-align: left;
     border-collapse: collapse;
-    
-    @media (width >= $tablet) {
-      margin: 48px 0;
-    }
   }
 
   th,

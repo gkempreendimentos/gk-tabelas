@@ -1,0 +1,12 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--color-medium);
+
+  .button {
+    --color: var(--color-dark-tint);
+    --bg-hover: var(--color-light);
+  }
+}
