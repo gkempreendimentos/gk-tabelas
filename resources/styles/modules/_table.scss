@@ -26,15 +26,16 @@
   }
 
   th {
+    font-size: 1.125rem;
     font-weight: 500;
     color: var(--color-medium-shade);
     background-color: var(--color-light-shade);
-    border-bottom: 1px solid var(--color-light-shade);
+    border: 1px solid rgba(0,0,0,.15);
   }
 
   td {
     @media (width >= $tablet) {
-      border-bottom: 1px solid var(--color-light-shade);
+      border: 1px solid rgba(0,0,0,.15);
     }
 
     a {
@@ -49,21 +50,31 @@
 
   tr.-expanded {
     @media (width < $tablet) {
+      padding: 12px 0;
       background-color: var(--color-light-shade);
 
       td {
         display: block;
 
         &.column-primary {
+          margin-bottom: 12px;
           background-color: var(--color-light);
 
           &::after {
             transform: translateY(-50%) rotate(180deg);
           }
+
+          &::after:hover {
+            color: var(--color-medium-shade);
+          }
         }
 
         &:not(.column-primary) {
           padding: 12px 160px;
+        }
+
+        &:last-child {
+          padding-bottom: 24px;
         }
       }
     }
