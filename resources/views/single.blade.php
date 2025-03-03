@@ -38,26 +38,28 @@
         </section>
       </div>
       <div class="tab" data-modal="resumido">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Apartamento</th>
-              <th>Preço</th>
-              <th>Metragem</th>
-              <th>Quartos</th>
-              <th>Planta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="column-primary" data-colname="Apartamento">803B</td>
-              <td data-colname="Preço">R$ 3.337.000,00</td>
-              <td data-colname="Metragem">172,03</td>
-              <td data-colname="Quartos">3 suítes</td>
-              <td data-colname="Planta"><a href="#">Visualizar planta</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Apartamento</th>
+                <th>Preço</th>
+                <th>Metragem</th>
+                <th>Quartos</th>
+                <th>Planta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="column-primary" data-colname="Apartamento">803B</td>
+                <td data-colname="Preço">R$ 3.337.000,00</td>
+                <td data-colname="Metragem">172,03</td>
+                <td data-colname="Quartos">3 suítes</td>
+                <td data-colname="Planta"><a href="#">Visualizar planta</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

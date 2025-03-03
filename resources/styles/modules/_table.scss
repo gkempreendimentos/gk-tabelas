@@ -1,26 +1,33 @@
 .table {
-  width: 100%;
-  margin: 32px 0;
-  text-align: left;
-  border-collapse: collapse;
-  
   @media (width >= $tablet) {
-    margin: 48px 0;
+    @include wrapper;
+  }
+
+  table {
+    width: 100%;
+    margin: 32px 0;
+    text-align: left;
+    border-collapse: collapse;
+    
+    @media (width >= $tablet) {
+      margin: 48px 0;
+    }
   }
 
   th,
   td {
-    @include wrapper;
-    padding-top: 16px;
-    padding-bottom: 16px;
-
+    padding: 16px 24px;
+    
     @media (width < $tablet) {
+      border-top: 1px solid var(--color-light-shade);
+
       &:not(:first-child) {
         display: none;
       }
     } 
-
+    
     @media (width >= $tablet) {
+      border: 1px solid var(--color-light-shade);
       font-size: 1.125rem;
     }
   }
@@ -29,21 +36,18 @@
     font-size: 1.125rem;
     font-weight: 500;
     color: var(--color-medium-shade);
-    background-color: var(--color-light-shade);
-    border: 1px solid rgba(0,0,0,.15);
+    background-color: var(--color-light);
+    border-top: 1px solid var(--color-light-shade);
   }
 
   td {
-    @media (width >= $tablet) {
-      border: 1px solid rgba(0,0,0,.15);
-    }
 
     a {
       color: var(--color-dark);
-      text-decoration: none;
+      text-decoration: underline;
       
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
   }
@@ -101,11 +105,12 @@
     }
 
     &.column-primary {
+      font-weight: 500;
+      
       @media (width < $tablet) {
         position: relative;
         display: block;
         font-size: 1.125rem;
-        font-weight: 500;
         cursor: pointer;
         border-bottom: 1px solid var(--color-light-shade);
 
