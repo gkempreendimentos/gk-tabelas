@@ -42,21 +42,26 @@
           <table>
             <thead>
               <tr>
-                <th>Apartamento</th>
-                <th>Preço</th>
-                <th>Metragem</th>
-                <th>Quartos</th>
-                <th>Planta</th>
+                @foreach ($table['headers'] as $header)
+                  <th>{{ $header }}</th>  
+                @endforeach
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="column-primary" data-colname="Apartamento">803B</td>
-                <td data-colname="Preço">R$ 3.337.000,00</td>
-                <td data-colname="Metragem">172,03</td>
-                <td data-colname="Quartos">3 suítes</td>
-                <td data-colname="Planta"><a href="#">Visualizar planta</a></td>
-              </tr>
+              @php $rowIndex = 0 @endphp
+              @foreach ($table['data'] as $row)
+                <tr>
+                  @php $colIndex = 0; @endphp
+
+                  @foreach ($row as $key => $value)
+                    <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}">{{ $value }}</td>
+
+                    @php $colIndex++; @endphp
+                  @endforeach
+                </tr>
+
+                @php $rowIndex++; @endphp
+              @endforeach
             </tbody>
           </table>
         </div>
