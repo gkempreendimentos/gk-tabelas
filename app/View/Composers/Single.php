@@ -47,41 +47,16 @@ class Single extends Composer
   }
 
   /**
-   * Return google spreadsheet by ID
+   * Format Summarized Table
    * 
+   * @param headers
+   * @param data
+   * @return array
    */
-  public function getTable()
+  function summarizedData($headers, $values)
   {
-    $api_key = get_field('api_google', 'options');
-    $spreadsheet_id = get_field('spreadsheet_id');
-    
-    $page = request()->get('pagina', 1);
-    $itemsPerPage = request()->get('limit', 10);
     $order_by = request()->get('order_by', 'apartamento_asc');
-
-    $range = 'A1:E100';
-    $url = "https://sheets.googleapis.com/v4/spreadsheets/{$spreadsheet_id}/values/{$range}?key={$api_key}";
-
-    $response = wp_remote_get($url);
-
-    if (is_wp_error($response)) {
-      return 'Erro ao buscar dados da planilha';
-    }
-
-    $body = wp_remote_retrieve_body($response);
-    $data = json_decode($body, true);
-
-    if (!isset($data['values'])) {
-      return 'Nenhum dado encontrado';
-    }
-
-    $headers = array_shift($data['values']);
-    $formattedData = array_map(function($row) use ($headers) {
-      return array_combine($headers, $row);
-    }, $data['values']);
-    $formattedData = array_values($formattedData);
-
-    $summarizedData = array_filter($formattedData, function($row) {
+    $summarizedData = array_filter($values, function($row) {
       return isset($row['Disponibilidade']) && $row['Disponibilidade'] !== 'VENDIDO';
     });
     $summarizedData = array_values($summarizedData);
@@ -141,6 +116,44 @@ class Single extends Composer
       });    
     }
 
+    return $summarizedData;
+  }
+
+  /**
+   * Return google spreadsheet by ID
+   * 
+   */
+  public function getTable()
+  {
+    $api_key = get_field('api_google', 'options');
+    $spreadsheet_id = get_field('spreadsheet_id');
+    
+    $page = request()->get('pagina', 1);
+    $itemsPerPage = request()->get('limit', 10);
+
+    $range = 'A1:G100';
+    $url = "https://sheets.googleapis.com/v4/spreadsheets/{$spreadsheet_id}/values/{$range}?key={$api_key}";
+
+    $response = wp_remote_get($url);
+
+    if (is_wp_error($response)) {
+      return 'Erro ao buscar dados da planilha';
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+
+    if (!isset($data['values'])) {
+      return 'Nenhum dado encontrado';
+    }
+
+    $headers = array_shift($data['values']);
+    $formattedData = array_map(function($row) use ($headers) {
+      return array_combine($headers, $row);
+    }, $data['values']);
+    $formattedData = array_values($formattedData);
+    $summarizedData = $this->summarizedData($headers, $formattedData);
+    
     $totalItems = count($summarizedData);
     $offset = ($page - 1) * $itemsPerPage;
     $paginatedData = array_slice($summarizedData, $offset, $itemsPerPage);

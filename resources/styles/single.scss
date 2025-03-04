@@ -16,6 +16,8 @@
   border: 1px solid var(--color-light-tint);
 }
 
-[data-colname="Disponibilidade"] {
+[data-colname="Disponibilidade"],
+[data-colname="Torre"],
+[data-colname="Tipo"] {
   display: none !important;
 }

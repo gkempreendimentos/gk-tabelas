@@ -44,7 +44,7 @@
               <tr>
                 @foreach ($table['headers'] as $header)
                   @php
-                    $order_selected = $_GET['order_by'];
+                    $order_selected = request()->get('order_by', 'apartamento_asc');
                   @endphp
                   <th data-colname="{{ $header }}">
                     <div class="th-wrapper">
