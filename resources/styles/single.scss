@@ -15,3 +15,7 @@
   border-radius: var(--radius) var(--radius) 0 0;
   border: 1px solid var(--color-light-tint);
 }
+
+[data-colname="Disponibilidade"] {
+  display: none !important;
+}
