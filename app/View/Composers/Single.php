@@ -127,11 +127,11 @@ class Single extends Composer
   {
     $api_key = get_field('api_google', 'options');
     $spreadsheet_id = get_field('spreadsheet_id');
+    $range = get_field('spreadsheet_range');
     
     $page = request()->get('pagina', 1);
     $itemsPerPage = request()->get('limit', 10);
 
-    $range = 'A1:G100';
     $url = "https://sheets.googleapis.com/v4/spreadsheets/{$spreadsheet_id}/values/{$range}?key={$api_key}";
 
     $response = wp_remote_get($url);
@@ -158,11 +158,24 @@ class Single extends Composer
     $offset = ($page - 1) * $itemsPerPage;
     $paginatedData = array_slice($summarizedData, $offset, $itemsPerPage);
 
+    $towers = [];
+    $types = [];
+
+    foreach ($formattedData as $ap) {
+      $towers[] = $ap["Torre"];
+      $types[] = $ap["Tipo"];
+    }
+
+    $towers = array_unique($towers);
+    $types = array_unique($types);
+
     return [
       'headers' => $headers,
       'data' => [
         'complete' => $formattedData,
         'summary' => $paginatedData,
+        'towers' => $towers,
+        'types' => $types
       ],
       'pagination' => [
         'total' => $totalItems,

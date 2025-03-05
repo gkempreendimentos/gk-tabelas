@@ -12,8 +12,8 @@
     text-decoration: none;
     color: var(--color-dark);
 
-    &:hover {
-      color: var(--color-primary-shade);
+    &:hover span {
+      text-decoration: underline;
     }
   }
 }

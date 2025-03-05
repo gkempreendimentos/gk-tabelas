@@ -1,9 +1,11 @@
 export const tabpanel = () => {
   const goToTab = (tab) => {
-    const $buttons = document.querySelectorAll('.tabpanel [data-toggle]');
-    const $tabs = document.querySelectorAll('.tabpanel [data-modal]');
-    const $tab = document.querySelector(`.tabpanel [data-modal="${tab}"]`);
-    const $button = document.querySelector(`.tabpanel [data-toggle=${tab}]`);
+    const $buttons = document.querySelectorAll('.tabpanel-tabs [data-toggle]');
+    const $tabs = document.querySelectorAll('.tabpanel [data-tab]');
+    const $tab = document.querySelector(`.tabpanel [data-tab="${tab}"]`);
+    const $button = document.querySelector(
+      `.tabpanel-tabs [data-toggle=${tab}]`,
+    );
 
     $buttons.forEach((btn) => {
       btn.classList.remove('-selected');
@@ -18,7 +20,7 @@ export const tabpanel = () => {
   };
 
   const toggleTabs = () => {
-    const $buttons = document.querySelectorAll('.tabpanel [data-toggle]');
+    const $buttons = document.querySelectorAll('.tabpanel-tabs [data-toggle]');
 
     $buttons.forEach((button) => {
       button.addEventListener('click', function (e) {
