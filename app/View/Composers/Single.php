@@ -160,10 +160,15 @@ class Single extends Composer
 
     $towers = [];
     $types = [];
+    $max_cols = 0;
 
     foreach ($formattedData as $ap) {
       $towers[] = $ap["Torre"];
       $types[] = $ap["Tipo"];
+
+      if ($item['Posição'] === 'Frente' && $item['Torre'] === $tower && $item['Tipo'] === $type) {
+        $cols = max($cols, $col);
+      }
     }
 
     $towers = array_unique($towers);

@@ -5,11 +5,11 @@ export const map = () => {
 
     $dots.forEach((btn) => {
       if (btn.dataset.toggle !== $button.dataset.toggle) {
-        btn.closest('li').classList.remove('-opened');
+        btn.closest('.map-dots__item').classList.remove('-opened');
       }
     });
 
-    $button.closest('li').classList.toggle('-opened');
+    $button.closest('.map-dots__item').classList.toggle('-opened');
   };
 
   const toggleDots = () => {

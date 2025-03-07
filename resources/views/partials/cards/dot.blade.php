@@ -1,4 +1,4 @@
-<li class="{{ $item['Disponibilidade'] === 'DISPONÍVEL' ? '-enabled' : '-disabled' }}">
+<div class="map-dots__item {{ $item['Disponibilidade'] === 'DISPONÍVEL' ? '-enabled' : '-disabled' }}" style="--row: {{ $row }}; --col: {{ $col }}">
   <span class="map-dots__button" role="button" aria-label="Abrir detalhes" data-toggle="dot-{{ $item['Apartamento'] }}">{{ $item['Apartamento'] }}</span>
   <ul class="map-info">
     <li>
@@ -37,4 +37,4 @@
       <strong><a href="{{ $item['Planta'] }}">Visualizar planta</a></strong>
     </li>
   </ul>
-</li>
+</div>

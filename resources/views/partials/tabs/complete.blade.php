@@ -1,6 +1,7 @@
 @php
   $tower = request()->get('tower', 'Torre A');
   $type = request()->get('type', 'Convencional');
+  $cols = 0;
 @endphp
 
 <section class="map">
@@ -29,13 +30,24 @@
   </form>
 
   <div class="map-content">
-    <ol class="map-dots">
+    <div class="map-dots">
       @foreach ($table['data']['complete'] as $item)
+        @php
+          preg_match('/L(\d+)C(\d+)/', $item["Grid"], $matches);
+          $row = $matches[1];
+          $col = $matches[2];
+        @endphp
         @if ($item['Posição'] === 'Frente' && $item['Torre'] === $tower && $item['Tipo'] === $type)
-          @include('partials.cards.dot')
+          @php
+            $cols = max($cols, $col);
+          @endphp
+          @include('partials.cards.dot', [
+            'row' => $row,
+            'col' => $col
+          ])
         @endif
       @endforeach
-    </ol>
+    </div>
     @foreach (get_field('plans') as $plan)
       @if ($plan['tower'] === $tower && $plan['type'] === $type)
         <figure class="map-plan">
@@ -43,12 +55,28 @@
         </figure>
       @endif
     @endforeach
-    <ol class="map-dots">
+    
+    <div class="map-dots">
       @foreach ($table['data']['complete'] as $item)
+        @php
+          preg_match('/L(\d+)C(\d+)/', $item["Grid"], $matches);
+          $row = $matches[1];
+          $col = $matches[2];
+        @endphp
+
         @if ($item['Posição'] === 'Fundos' && $item['Torre'] === $tower && $item['Tipo'] === $type)
-          @include('partials.cards.dot')
+          @include('partials.cards.dot', [
+            'row' => $row,
+            'col' => $col
+          ])
         @endif
       @endforeach
-    </ol>
+    </div>
   </div>
 </section>
+
+<style>
+  .map-dots {
+    --cols: {{ $cols }} 
+  }
+</style>
