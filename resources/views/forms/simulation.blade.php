@@ -1,4 +1,4 @@
-<div class="modal -simulation -opened" data-modal="simulation">
+<div class="modal -simulation" data-modal="simulation">
   <div class="modal-backdrop" data-toggle="simulation"></div>
   <div class="modal-wrapper">
     <div class="modal-header">
@@ -48,7 +48,8 @@
       </form>
     </div>
     <div class="modal-footer">
-      <a data-calc="whatsapp" href="#" class="button -full -whatsapp">
+      <a data-calc="whatsapp" href="#" target="_blank
+      " class="button -full -whatsapp">
         <svg width="24" height="24">
           <use xlink:href="#icon-whatsapp"></use>
         </svg>
