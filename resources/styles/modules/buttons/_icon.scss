@@ -9,10 +9,12 @@
   font-size: 1.5rem;
 
   &:hover {
+    color: var(--color-hover, var(--color-light));
     background-color: var(--bg-hover, rgba(var(--color-primary-rgb)), 10%);
   }
   
   &:active {
+    color: var(--color-active, var(--color-light));
     background-color: var(--bg-active, rgba(var(--color-primary-rgb)), 15%);
   }
 }

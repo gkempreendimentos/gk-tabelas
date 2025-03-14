@@ -34,11 +34,11 @@
     "eslint": "^9.0.0"
   },
   "dependencies": {
-    "@vueuse/core": "^12.4.0",
-    "normalize.css": "^8.0.1",
     "@fancyapps/ui": "^5.0.36",
+    "@vueuse/core": "^12.4.0",
     "axios": "^1.6.8",
-    "vue": "^3.5.13",
-    "oh-vue-icons": "^1.0.0-rc3"
+    "normalize.css": "^8.0.1",
+    "oh-vue-icons": "^1.0.0-rc3",
+    "vue": "^3.5.13"
   }
 }

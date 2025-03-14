@@ -23,4 +23,28 @@
     color: var(--active-color);
     background-color: var(--active-bg-color);
   }
+
+  &.-whatsapp {
+    --border-color: #25d366;
+    --hover-border-color: #{darken(#25d366, 10%)};
+    --active-border-color: #{darken(#25d366, 20%)};
+    --color: #111b21;
+    --hover-color: #111b21;
+    --active-color: #111b21;
+    --bg-color: #25d366;
+    --hover-bg-color: #{darken(#25d366, 10%)};
+    --active-bg-color: #{darken(#25d366, 20%)};
+  }
+
+  &.-site {
+    --border-color: transparent;
+    --hover-border-color:  transparent;
+    --active-border-color:  transparent;
+    --color: var(--color-light-tint);
+    --hover-color: var(--color-light-tint);
+    --active-color: var(--color-light-tint);
+    --bg-color: transparent;
+    --hover-bg-color: rgba(255,255,255,.1);
+    --active-bg-color: rgba(255,255,255,.15);
+  }
 }

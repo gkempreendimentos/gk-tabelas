@@ -25,6 +25,18 @@
         }
       }
 
+      &.-negotiating .map-dots__button {
+        color: var(--color-warning);
+        
+        &:hover {
+          color: var(--color-warning-tint);
+        }
+
+        &:active {
+          color: var(--color-warning-shade);
+        }
+      }
+
       &.-enabled .map-dots__button {
         color: var(--color-success);
         
@@ -144,6 +156,15 @@
 
       @media (width >= $tablet) {
         font-size: 1.125rem;
+      }
+    }
+
+    button {
+      font-weight: 500;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
       }
     }
 

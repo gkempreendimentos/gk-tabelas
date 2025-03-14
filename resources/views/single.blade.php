@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+  @include('forms.simulation')
+  
   <figure class="banner -single" style="--color: {{ $data['color'] }}">
     <img src="{{ $data['image'] }}" width="320" height="104" alt="{{ $data['title'] }}">
   </figure>

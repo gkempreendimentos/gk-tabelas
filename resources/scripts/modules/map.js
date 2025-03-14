@@ -1,7 +1,9 @@
 export const map = () => {
   const openDot = (dot) => {
-    const $dots = document.querySelectorAll('.map [data-toggle]');
-    const $button = document.querySelector(`.map [data-toggle="${dot}"]`);
+    const $dots = document.querySelectorAll('.map-dots__button[data-toggle]');
+    const $button = document.querySelector(
+      `.map-dots__button[data-toggle="${dot}"]`,
+    );
 
     $dots.forEach((btn) => {
       if (btn.dataset.toggle !== $button.dataset.toggle) {
@@ -13,7 +15,9 @@ export const map = () => {
   };
 
   const toggleDots = () => {
-    const $buttons = document.querySelectorAll('.map [data-toggle]');
+    const $buttons = document.querySelectorAll(
+      '.map-dots__button[data-toggle]',
+    );
 
     $buttons.forEach((button) => {
       button.addEventListener('click', function (e) {

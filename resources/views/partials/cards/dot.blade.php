@@ -1,4 +1,19 @@
-<div class="map-dots__item {{ $item['Disponibilidade'] === 'DISPONÍVEL' ? '-enabled' : '-disabled' }}" style="--row: {{ $row }}; --col: {{ $col }}">
+@php
+  $status = '';
+
+  switch ($item['Disponibilidade']) {
+    case 'DISPONÍVEL':
+      $status = '-enabled';
+      break;
+    case 'NEGOCIANDO':
+      $status = '-negotiating';
+      break;
+    default:
+      $status = '-disabled';
+      break;
+  }
+@endphp
+<div class="map-dots__item {{ $status }}" style="--row: {{ $row }}; --col: {{ $col }}">
   <span class="map-dots__button" role="button" aria-label="Abrir detalhes" data-toggle="dot-{{ $item['Apartamento'] }}">{{ $item['Apartamento'] }}</span>
   <ul class="map-info">
     <li>
@@ -12,8 +27,9 @@
       <i aria-hidden="true" class="material-symbols-outlined">
         attach_money
       </i>
-      <span>Preço</span>
-      <strong>{{ $item['Preço'] }}</strong>
+      <span class="map-info__title">Preço</span>
+      <strong class="map-info__value">{{ $item['Preço'] }}</strong>
+      <button class="map-info__simulate" data-toggle="simulation" data-price="{{ str_replace(["R$", ".", ",", " "], ["", "", ".", ""], $item['Preço']) }}">Simular</button>
     </li>
     <li>
       <i aria-hidden="true" class="material-symbols-outlined">
