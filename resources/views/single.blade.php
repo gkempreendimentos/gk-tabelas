@@ -27,6 +27,14 @@
   <section class="section -materials">
     <h3 class="section-title">Download dos materiais</h3>
     <ul class="list -materials">
+      <li>
+        <a href="{{ $table['data']['pdf'] }}" target="_blank" rel="noopener noreferrer">
+          <i aria-hidden="true" class="material-symbols-outlined">
+            download
+          </i>
+          <strong>Tabela Resumida do empreendimento {{ $data['title'] }}</strong>
+        </a>
+      </li> 
       @foreach ($data['materials'] as $material)
         <li>
           <a href="{{ $material['url'] }}" target="_blank" rel="noopener noreferrer">

@@ -40,7 +40,8 @@
   },
   "require": {
     "php": ">=8.1",
-    "roots/acorn": "^4.3"
+    "roots/acorn": "^4.3",
+    "tecnickcom/tcpdf": "^6.8"
   },
   "require-dev": {
     "laravel/pint": "^1.13"

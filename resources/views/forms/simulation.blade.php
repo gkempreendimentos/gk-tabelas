@@ -13,7 +13,7 @@
       <form class="form">
         <div class="form-control">
           <label for="price" class="form-label">Valor total</label>
-          <input class="form-input" type="text" id="price" name="price" placeholder="R$ 1.000.000,00" disabled data-mask="currency">
+          <input class="form-input" type="text" id="price" name="price" placeholder="R$ 1.000.000,00" disabled data-mask="currency">
         </div>
 
         <div class="form-control form-range">
@@ -21,7 +21,7 @@
             <label for="entry" class="form-label">Entrada <span data-calc="range"></span></label>
             <strong data-calc="entry"></strong>
           </div>
-          <input type="range" name="entry" id="entry" value="50">
+          <input type="range" name="entry" id="entry" min="20" value="50">
         </div>
 
         <div class="form-control form-multiply">

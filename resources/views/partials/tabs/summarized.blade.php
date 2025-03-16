@@ -35,6 +35,15 @@
           @foreach ($row as $key => $value)
             @if ($key === 'Planta')
               <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}"><a href="{{ $value }}">Visualizar planta</a></td>
+            @elseif ($key === 'Preço')
+              <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}">
+                {{ $value }}
+                <button aria-label="Abrir calculadora de simulação" data-toggle="simulation" data-price="{{ str_replace(["R$", ".", ",", " "], ["", "", ".", ""], $value) }}">
+                  <span class="material-symbols-outlined">
+                    tune
+                  </span>
+                </button>
+              </td>
             @else
               <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}">{{ $value }}</td>
             @endif
