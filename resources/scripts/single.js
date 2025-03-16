@@ -3,6 +3,7 @@ import {tabpanel} from './modules/tabpanel';
 import {table} from './modules/table';
 import {map} from './modules/map';
 import {simulation} from './modules/modals/simulation';
+import {lightbox} from './modules/lightbox';
 
 /**
  * Application entrypoint
@@ -12,6 +13,7 @@ domReady(async () => {
   table();
   map();
   simulation();
+  lightbox();
 });
 
 /**

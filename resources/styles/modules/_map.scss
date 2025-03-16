@@ -178,13 +178,21 @@
   }
 
   &-plan {
+    position: relative;
     display: block;
     margin: 48px auto;
-
+    transition: opacity var(--transition);
+    cursor: zoom-in;
+    
+    &:hover {
+      opacity: .7;
+    }
+    
     img {
       width: 100%;
       height: auto;
       display: block;
     }
+
   }
 }
