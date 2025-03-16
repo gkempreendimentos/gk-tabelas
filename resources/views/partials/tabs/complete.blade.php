@@ -3,7 +3,7 @@
   $type = request()->get('type', 'Convencional');
   $cols = 0;
 @endphp
-
+    
 <section class="map">
   <form class="form -filter">
     <div class="form-control">
