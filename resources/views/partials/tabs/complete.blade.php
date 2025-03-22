@@ -2,8 +2,9 @@
   $tower = request()->get('tower', 'Torre A');
   $type = request()->get('type', 'Convencional');
   $cols = 0;
+  $plans = get_field('plans');
 @endphp
-    
+
 <section class="map">
   <form class="form -filter">
     <div class="form-control">
@@ -49,7 +50,7 @@
       @endforeach
     </div>
     
-    @foreach (get_field('plans') as $plan)
+    @foreach ($plans as $plan)
       @if ($plan['tower'] === $tower && $plan['type'] === $type)
         <figure class="map-plan">
           <img data-fancybox src="{{ $plan['plan_image']['url'] }}" alt="Planta do emprendimento ">

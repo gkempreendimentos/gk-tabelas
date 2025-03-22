@@ -239,7 +239,11 @@ class Single extends Composer
     $api_key = get_field('api_google', 'options');
     $spreadsheet_id = get_field('spreadsheet_id');
     $range = get_field('spreadsheet_range');
-    
+
+    if (!$spreadsheet_id && !$range) {
+      return;
+    }
+
     $page = request()->get('pagina', 1);
     $itemsPerPage = request()->get('limit', 10);
 

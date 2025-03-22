@@ -8,6 +8,7 @@
   </figure>
 
   <div class="tabpanel">
+    @if ($table)
     <div class="tabpanel-tabs">
       <button class="tabpanel-tabs__button -selected" data-toggle="completo">Completo</button>
       <button class="tabpanel-tabs__button" data-toggle="resumido">Resumido</button>
@@ -21,6 +22,9 @@
         @include('partials.tabs.summarized')
       </div>
     </div>
+    @else
+    <p>Nenhum dado foi encontrado.</p>
+    @endif
   </div>
 
   @if ($data['materials'])
