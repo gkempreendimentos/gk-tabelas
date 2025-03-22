@@ -1,0 +1,18 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_roots_bud_sage"]("single",{
+
+/***/ "./scripts/modules/modals/simulation.js":
+/***/ (function() {
+
+eval("throw new Error(\"Module parse failed: Unexpected token (22:14)\\nFile was processed with these loaders:\\n * ../node_modules/@pmmmwh/react-refresh-webpack-plugin/loader/index.js\\n * ../node_modules/ts-loader/index.js\\nYou may need an additional loader to handle the result of these loaders.\\n|             booster\\n|         } - quantity, '', booster - total, '', installments, '');\\n>     }, storage, obj;\\n| };\\n| ;\");\n\n//# sourceURL=webpack://@roots/bud/sage/./scripts/modules/modals/simulation.js?");
+
+/***/ })
+
+});

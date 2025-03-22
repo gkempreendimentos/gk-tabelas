@@ -1,0 +1,19 @@
+"use strict";
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_roots_bud_sage"]("home",{
+
+/***/ "./scripts/utils/toggle.js":
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
+
+eval("var _Users_kvnol_Local_Sites_gk_empreendimentos_site_do_corretor_app_public_wp_content_themes_gk_tabelas_node_modules_react_refresh_runtime_js__WEBPACK_IMPORTED_MODULE_0___namespace_cache;\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   toggleModal: function() { return /* binding */ toggleModal; }\n/* harmony export */ });\n/* harmony import */ var _Users_kvnol_Local_Sites_gk_empreendimentos_site_do_corretor_app_public_wp_content_themes_gk_tabelas_node_modules_react_refresh_runtime_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(\"../node_modules/react-refresh/runtime.js\");\n/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(\"../node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js\");\n\n__webpack_require__.$Refresh$.runtime = /*#__PURE__*/ (_Users_kvnol_Local_Sites_gk_empreendimentos_site_do_corretor_app_public_wp_content_themes_gk_tabelas_node_modules_react_refresh_runtime_js__WEBPACK_IMPORTED_MODULE_0___namespace_cache || (_Users_kvnol_Local_Sites_gk_empreendimentos_site_do_corretor_app_public_wp_content_themes_gk_tabelas_node_modules_react_refresh_runtime_js__WEBPACK_IMPORTED_MODULE_0___namespace_cache = __webpack_require__.t(_Users_kvnol_Local_Sites_gk_empreendimentos_site_do_corretor_app_public_wp_content_themes_gk_tabelas_node_modules_react_refresh_runtime_js__WEBPACK_IMPORTED_MODULE_0__, 2)));\n\nconst toggleModal = (id) => {\n    const $modal = document.querySelector(`[data-modal=\"${id}\"]`);\n    if ($modal.classList.contains('-opened')) {\n        $modal.classList.remove('-opened');\n    }\n    else {\n        $modal.classList.add('-opened');\n    }\n};\n\n\nvar $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;\nvar $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(\n\t$ReactRefreshModuleId$\n);\n\nfunction $ReactRefreshModuleRuntime$(exports) {\n\tif (true) {\n\t\tvar errorOverlay;\n\t\tif (true) {\n\t\t\terrorOverlay = false;\n\t\t}\n\t\tvar testMode;\n\t\tif (typeof __react_refresh_test__ !== 'undefined') {\n\t\t\ttestMode = __react_refresh_test__;\n\t\t}\n\t\treturn __react_refresh_utils__.executeRuntime(\n\t\t\texports,\n\t\t\t$ReactRefreshModuleId$,\n\t\t\t__webpack_module__.hot,\n\t\t\terrorOverlay,\n\t\t\ttestMode\n\t\t);\n\t}\n}\n\nif (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {\n\t$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);\n} else {\n\t$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);\n}\n\n//# sourceURL=webpack://@roots/bud/sage/./scripts/utils/toggle.js?");
+
+/***/ })
+
+});

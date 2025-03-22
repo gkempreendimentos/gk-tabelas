@@ -1,0 +1,11 @@
+{
+  "app.js": "js/app.js",
+  "home.js": "js/home.js",
+  "single.js": "js/single.js",
+  "runtime.js": "js/runtime.js",
+  "images/logo.png": "images/logo.png",
+  "images/pdf_logo.png": "images/pdf_logo.png",
+  "images/pdf_logo.jpg": "images/pdf_logo.jpg",
+  "hmr.json": "hmr.json",
+  "entrypoints.json": "entrypoints.json"
+}

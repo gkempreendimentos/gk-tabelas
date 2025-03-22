@@ -1,0 +1,23 @@
+{
+  "app": {
+    "js": [
+      "js/runtime.js",
+      "js/app.js"
+    ],
+    "dependencies": []
+  },
+  "home": {
+    "js": [
+      "js/runtime.js",
+      "js/home.js"
+    ],
+    "dependencies": []
+  },
+  "single": {
+    "js": [
+      "js/runtime.js",
+      "js/single.js"
+    ],
+    "dependencies": []
+  }
+}
