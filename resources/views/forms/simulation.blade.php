@@ -21,7 +21,7 @@
             <label for="entry" class="form-label">Entrada <span data-calc="range"></span></label>
             <strong data-calc="entry"></strong>
           </div>
-          <input type="range" name="entry" id="entry" min="20" value="50">
+          <input type="range" name="entry" id="entry" min="{{ get_field('entry_min') }}" value="50">
         </div>
 
         <div class="form-control form-multiply">
