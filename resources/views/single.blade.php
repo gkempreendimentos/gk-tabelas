@@ -1,3 +1,10 @@
+@php
+  $show_complete_tab = get_field('show_complete_tab');
+  $show_summary_tab = get_field('show_summary_tab');
+  $show_complete = isset($show_complete_tab) && $show_complete_tab;
+  $show_summary = isset($show_summary_tab) && $show_summary_tab;
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -10,17 +17,26 @@
   <div class="tabpanel">
     @if ($table)
     <div class="tabpanel-tabs">
-      <button class="tabpanel-tabs__button -selected" data-toggle="completo">Completo</button>
-      <button class="tabpanel-tabs__button" data-toggle="resumido">Resumido</button>
+      @if ($show_complete)
+        <button class="tabpanel-tabs__button -selected" data-toggle="completo">Completo</button>
+      @endif
+      @if ($show_summary)
+        <button class="tabpanel-tabs__button {{ !$show_complete ? '-selected' : '' }}" data-toggle="resumido">Resumido</button>
+      @endif
     </div>
     
     <div class="tabpanel-content">
-      <div class="tab -opened" data-tab="completo">
-        @include('partials.tabs.complete')
-      </div>
-      <div class="tab" data-tab="resumido">
-        @include('partials.tabs.summarized')
-      </div>
+      @if ($show_complete)
+        <div class="tab -opened" data-tab="completo">
+          @include('partials.tabs.complete')
+        </div>
+      @endif
+
+      @if ($show_summary)
+        <div class="tab {{ !$show_complete ? '-opened' : '' }}" data-tab="resumido">
+          @include('partials.tabs.summarized')
+        </div>
+      @endif
     </div>
     @else
     <p>Nenhum dado foi encontrado.</p>
