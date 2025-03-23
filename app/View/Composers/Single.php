@@ -176,9 +176,10 @@ class Single extends Composer
   {
     $data = $this->getData();
     $upload_dir = wp_get_upload_dir();
+
     $pdf_path = $upload_dir['path'] . "/{$data['title']}.pdf";
     $pdf_url = $upload_dir['url'] . "/{$data['title']}.pdf";
-    $logo_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], asset('images/pdf_logo.jpg')->uri());
+    $logo_path = asset('images/pdf_logo.jpg')->path();
     $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('GK Empreendimentos');
