@@ -1,22 +1,31 @@
 {
   "app": {
     "js": [
-      "js/runtime.js",
-      "js/app.js"
+      "js/runtime.d62b54.js",
+      "js/app.91958f.js"
+    ],
+    "css": [
+      "css/app.4cb2e0.css"
     ],
     "dependencies": []
   },
   "home": {
     "js": [
-      "js/runtime.js",
-      "js/home.js"
+      "js/runtime.d62b54.js",
+      "js/home.e4e2d8.js"
+    ],
+    "css": [
+      "css/home.e54ea4.css"
     ],
     "dependencies": []
   },
   "single": {
     "js": [
-      "js/runtime.js",
-      "js/single.js"
+      "js/runtime.d62b54.js",
+      "js/single.72dde9.js"
+    ],
+    "css": [
+      "css/single.8c6a39.css"
     ],
     "dependencies": []
   }

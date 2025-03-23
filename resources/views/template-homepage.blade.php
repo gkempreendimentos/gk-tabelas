@@ -17,7 +17,7 @@
       <li>
         <article class="card -enterprise" style="--color: {{ $item['color'] }}">
           @if ($item['materials'])
-            <ul class="card-materials" data-modal="materials-{{$item['id']}}">
+            <ul class="modal card-materials" data-modal="materials-{{$item['id']}}">
               @foreach ($item['materials'] as $material)
                 <li>
                   <a href="{{ $material['url'] }}" target="_blank" rel="noopener noreferrer">

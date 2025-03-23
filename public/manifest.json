@@ -1,11 +1,13 @@
 {
-  "app.js": "js/app.js",
-  "home.js": "js/home.js",
-  "single.js": "js/single.js",
-  "runtime.js": "js/runtime.js",
-  "images/logo.png": "images/logo.png",
-  "images/pdf_logo.png": "images/pdf_logo.png",
-  "images/pdf_logo.jpg": "images/pdf_logo.jpg",
-  "hmr.json": "hmr.json",
+  "app.css": "css/app.4cb2e0.css",
+  "app.js": "js/app.91958f.js",
+  "home.css": "css/home.e54ea4.css",
+  "home.js": "js/home.e4e2d8.js",
+  "single.css": "css/single.8c6a39.css",
+  "single.js": "js/single.72dde9.js",
+  "runtime.js": "js/runtime.d62b54.js",
+  "images/logo.png": "images/logo.870bec.png",
+  "images/pdf_logo.png": "images/pdf_logo.76fa6e.png",
+  "images/pdf_logo.jpg": "images/pdf_logo.9a5df0.jpg",
   "entrypoints.json": "entrypoints.json"
 }

@@ -11,6 +11,8 @@ export const cardEnterprise = () => {
         const $el = e.target.closest('.button');
         const $label = $el.querySelector('span');
 
+        console.log($el);
+
         $label.textContent = toggleModal($el.dataset.toggle)
           ? 'Ocultar materiais'
           : 'Ver materiais';

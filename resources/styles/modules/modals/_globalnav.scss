@@ -1,4 +1,6 @@
 .modal.-globalnav {
+  z-index: 10;
+  
   .modal-header {
     @include wrapper;
 

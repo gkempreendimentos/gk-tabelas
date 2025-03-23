@@ -1,6 +1,8 @@
 export const toggleModal = (id) => {
   const $modal = document.querySelector(`.modal[data-modal="${id}"]`);
 
+  console.log($modal);
+
   if ($modal?.classList.contains('-opened')) {
     $modal.classList.add('-closing');
     $modal.classList.remove('-opened');
