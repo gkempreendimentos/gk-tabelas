@@ -175,10 +175,10 @@ class Single extends Composer
   function exportPDF($table, $combinations, $headers)
   {
     $data = $this->getData();
-    $upload_dir = wp_upload_dir();
+    $upload_dir = wp_get_upload_dir();
     $pdf_path = $upload_dir['path'] . "/{$data['title']}.pdf";
     $pdf_url = $upload_dir['url'] . "/{$data['title']}.pdf";
-    $logo_path = asset('images/pdf_logo.jpg')->uri();
+    $logo_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], asset('images/pdf_logo.jpg')->uri());
     $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('GK Empreendimentos');
@@ -215,7 +215,8 @@ class Single extends Composer
 
       foreach (get_field('plans') as $plan) {
         if ($plan['plan_image'] && $plan['tower'] === $combination['tower'] && $plan['type'] === $combination['type']) {
-          $pdf->Image($plan['plan_image']['url'], 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 300, '', false, false, 0, false, false, false);
+          $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $plan['plan_image']['url']);
+          $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 300, '', false, false, 0, false, false, false);
         }
       }
 
