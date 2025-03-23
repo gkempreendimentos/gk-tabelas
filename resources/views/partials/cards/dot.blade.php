@@ -5,7 +5,7 @@
     case 'DISPONÍVEL':
       $status = '-enabled';
       break;
-    case 'NEGOCIANDO':
+    case 'RESERVADO':
       $status = '-negotiating';
       break;
     default:

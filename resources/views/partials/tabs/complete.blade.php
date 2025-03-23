@@ -1,6 +1,6 @@
 @php
   $tower = request()->get('tower', 'Torre A');
-  $type = request()->get('type', 'Convencional');
+  $type = request()->get('type', 'Pvto Tipo');
   $cols = 0;
   $plans = get_field('plans');
 @endphp
@@ -38,7 +38,7 @@
           $row = $matches[1];
           $col = $matches[2];
         @endphp
-        @if ($item['Posição'] === 'Frente' && $item['Torre'] === $tower && $item['Tipo'] === $type)
+        @if ($item['Posição'] === 'Topo' && $item['Torre'] === $tower && $item['Tipo'] === $type)
           @php
             $cols = max($cols, $col);
           @endphp
@@ -66,7 +66,7 @@
           $col = $matches[2];
         @endphp
 
-        @if ($item['Posição'] === 'Fundos' && $item['Torre'] === $tower && $item['Tipo'] === $type)
+        @if ($item['Posição'] === 'Baixo' && $item['Torre'] === $tower && $item['Tipo'] === $type)
           @include('partials.cards.dot', [
             'row' => $row,
             'col' => $col
