@@ -29,7 +29,7 @@
       </i>
       <span class="map-info__title">Preço</span>
       <strong class="map-info__value">{{ $item['Preço'] }}</strong>
-      <button class="map-info__simulate" data-toggle="simulation" data-price="{{ str_replace(["R$", ".", ",", " "], ["", "", ".", ""], $item['Preço']) }}">Simular</button>
+      <button class="map-info__simulate" data-toggle="simulation" data-price="{{ str_replace(["R$", ".", ",", " "], ["", "", ".", ""], $item['Preço']) }}" data-apartment="{{ $item['Apartamento'] }}" data-title="{{ get_the_title() }}">Simular</button>
     </li>
     <li>
       <i aria-hidden="true" class="material-symbols-outlined">
