@@ -217,11 +217,15 @@ class Single extends Composer
       foreach (get_field('plans') as $plan) {
         if ($plan['plan_image'] && $plan['tower'] === $combination['tower'] && $plan['type'] === $combination['type']) {
           $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $plan['plan_image']['url']);
-          $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 96, '', false, false, 0, false, false, false);
+          $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 72, '', false, false, 0, false, false, false);
         }
       }
 
       $pdf->MultiCell($usableWidth, 5, str_replace('<br />', '', get_field('pdf_obs', 'options')), 0, 'L', 0, 0, 8, 260, true);
+      
+      ob_flush();
+      flush();
+      gc_collect_cycles();
     }
 
 
