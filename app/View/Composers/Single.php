@@ -181,9 +181,16 @@ class Single extends Composer
     $data = $this->getData();
     $upload_dir = wp_get_upload_dir();
 
-    $pdf_path = $upload_dir['path'] . "/{$data['title']}.pdf";
-    $pdf_url = $upload_dir['url'] . "/{$data['title']}.pdf";
+    $date = date('Y-m-d');
+    $filename = "{$data['title']}-{$date}.pdf";
+    $pdf_path = $upload_dir['path'] . "/{$filename}";
+    $pdf_url = $upload_dir['url'] . "/{$filename}";
     $logo_path = asset('images/pdf_logo.jpg')->path();
+
+    if (file_exists($pdf_path)) {
+      return home_url(str_replace(ABSPATH, '', $pdf_path));
+    }
+
     $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
     $pdf->SetCreator(PDF_CREATOR);
     $pdf->SetAuthor('GK Empreendimentos');
@@ -206,13 +213,13 @@ class Single extends Composer
       $pdf->SetFont('helvetica', 'B', 16);
       $pdf->Cell(0, 16, "{$combination['tower']} - Imóvel {$combination['type']}", 0, 1, 'C');
 
-      $data = [];
+      $filtered_data = [];
 
       foreach($table as $row)
       {
         if ($row['Disponibilidade'] === 'DISPONÍVEL' && $row['Torre'] === $combination['tower'] && $row['Tipo'] === $combination['type'])
         {
-          $data[] = $row;
+          $filtered_data[] = $row;
         }
       }
 
@@ -229,6 +236,11 @@ class Single extends Composer
       }
 
       $pdf->MultiCell($usableWidth, 5, str_replace('<br />', '', get_field('pdf_obs', 'options')), 0, 'L', 0, 0, 8, 260, true);
+
+      unset($filtered_data);
+      ob_flush();
+      flush();
+      gc_collect_cycles();
     }
 
 
