@@ -1,6 +1,10 @@
 .map {
   margin: 32px auto;
 
+  &-content > p {
+    text-align: center;
+  }
+
   &-dots {
     display: grid;
     grid-template-columns: repeat(var(--cols), minmax(100px, 1fr));
