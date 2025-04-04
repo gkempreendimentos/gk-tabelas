@@ -31,53 +31,54 @@
   </form>
 
   <div class="map-content">
-    @if ($table['data']['complete'])
-      <div class="map-dots">
-        @foreach ($table['data']['complete'] as $item)
+    {{-- @if (!count($table['data']['complete']))
+      <p>Esta torre não possui este tipo de unidade.</p>
+    @endif --}}
+
+    <div class="map-dots">
+      @foreach ($table['data']['complete'] as $item)
+        @php
+          preg_match('/L(\d+)C(\d+)/', $item["Grid"], $matches);
+          $row = $matches[1];
+          $col = $matches[2];
+        @endphp
+        
+        @if ($item['Posição'] === 'Topo' && $item['Torre'] === $tower && $item['Tipo'] === $type)
           @php
-            preg_match('/L(\d+)C(\d+)/', $item["Grid"], $matches);
-            $row = $matches[1];
-            $col = $matches[2];
+            $cols = max($cols, $col);
           @endphp
-          @if ($item['Posição'] === 'Topo' && $item['Torre'] === $tower && $item['Tipo'] === $type)
-            @php
-              $cols = max($cols, $col);
-            @endphp
-            @include('partials.cards.dot', [
-              'row' => $row,
-              'col' => $col
-            ])
-          @endif
-        @endforeach
-      </div>
-      
-      @foreach ($plans as $plan)
-        @if ($plan['tower'] === $tower && $plan['type'] === $type)
-          <figure class="map-plan">
-            <img data-fancybox src="{{ $plan['plan_image']['url'] }}" alt="Planta do emprendimento ">
-          </figure>
+          @include('partials.cards.dot', [
+            'row' => $row,
+            'col' => $col
+          ])
         @endif
       @endforeach
-      
-      <div class="map-dots">
-        @foreach ($table['data']['complete'] as $item)
-          @php
-            preg_match('/L(\d+)C(\d+)/', $item["Grid"], $matches);
-            $row = $matches[1];
-            $col = $matches[2];
-          @endphp
+    </div>
+    
+    @foreach ($plans as $plan)
+      @if ($plan['tower'] === $tower && $plan['type'] === $type)
+        <figure class="map-plan">
+          <img data-fancybox src="{{ $plan['plan_image']['url'] }}" alt="Planta do emprendimento ">
+        </figure>
+      @endif
+    @endforeach
+    
+    <div class="map-dots">
+      @foreach ($table['data']['complete'] as $item)
+        @php
+          preg_match('/L(\d+)C(\d+)/', $item["Grid"], $matches);
+          $row = $matches[1];
+          $col = $matches[2];
+        @endphp
 
-          @if ($item['Posição'] === 'Baixo' && $item['Torre'] === $tower && $item['Tipo'] === $type)
-            @include('partials.cards.dot', [
-              'row' => $row,
-              'col' => $col
-            ])
-          @endif
-        @endforeach
-      </div>
-    @else
-      <p>Esta torre não possui este tipo de unidade.</p>
-    @endif
+        @if ($item['Posição'] === 'Baixo' && $item['Torre'] === $tower && $item['Tipo'] === $type)
+          @include('partials.cards.dot', [
+            'row' => $row,
+            'col' => $col
+          ])
+        @endif
+      @endforeach
+    </div>
 
   </div>
 </section>

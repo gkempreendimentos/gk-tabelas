@@ -1,11 +1,11 @@
 @php
   $status = '';
 
-  switch ($item['Disponibilidade']) {
-    case 'DISPONÍVEL':
+  switch (sanitize_title($item['Disponibilidade'])) {
+    case 'disponivel':
       $status = '-enabled';
       break;
-    case 'RESERVADO':
+    case 'reservado':
       $status = '-negotiating';
       break;
     default:
