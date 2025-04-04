@@ -209,10 +209,6 @@ class Single extends Composer
 
     foreach ($combinations as $combination)
     {
-      $pdf->AddPage();
-      $pdf->SetFont('helvetica', 'B', 16);
-      $pdf->Cell(0, 16, "{$combination['tower']} - Imóvel {$combination['type']}", 0, 1, 'C');
-
       $filtered_data = [];
 
       foreach($table as $row)
@@ -222,6 +218,14 @@ class Single extends Composer
           $filtered_data[] = $row;
         }
       }
+
+      if (empty($filtered_data)) {
+        continue;
+      }
+
+      $pdf->AddPage();
+      $pdf->SetFont('helvetica', 'B', 16);
+      $pdf->Cell(0, 16, "{$combination['tower']} - Imóvel {$combination['type']}", 0, 1, 'C');
 
       $pdf->ColoredTable($headers, $filtered_data);
 
