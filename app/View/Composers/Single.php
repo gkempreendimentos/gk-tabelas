@@ -46,6 +46,10 @@ class MYPDF extends TCPDF {
     }
     $this->Cell(100, 0, '', 'T');
   }
+
+  public function clearImageCache() {
+    $this->imagekeys = [];
+  }
 }
 
 
@@ -223,7 +227,7 @@ class Single extends Composer
           if (!isset($image_cache[$image_path])) {
             $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 72, '', false, false, 0, false, false, false);
             $image_cache[$image_path] = true;
-            $pdf->imagekeys = [];
+            $pdf->clearImageCache();
           }
         }
       }
