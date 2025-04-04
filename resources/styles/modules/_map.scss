@@ -13,15 +13,25 @@
       grid-row: var(--row);
       grid-column: var(--col);
 
-      &.-disabled .map-dots__button {
-        color: var(--color-danger);
+      &.-disabled  {
+        .map-info__value {
+          filter: blur(10px);
+        }
         
-        &:hover {
-          color: var(--color-danger-tint);
+        .map-info__simulate {
+          display: none;
         }
 
-        &:active {
-          color: var(--color-danger-shade);
+        .map-dots__button {
+          color: var(--color-danger);
+          
+          &:hover {
+            color: var(--color-danger-tint);
+          }
+  
+          &:active {
+            color: var(--color-danger-shade);
+          }
         }
       }
 
