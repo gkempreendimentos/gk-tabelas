@@ -222,7 +222,7 @@ class Single extends Composer
 
       foreach (get_field('plans') as $plan) {
         if ($plan['plan_image'] && $plan['tower'] === $combination['tower'] && $plan['type'] === $combination['type']) {
-          $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $plan['plan_image']['url']);
+          $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $plan['plan_image']['sizes']['large']);
 
           if (!isset($image_cache[$image_path])) {
             $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 72, '', false, false, 0, false, false, false);
@@ -238,6 +238,7 @@ class Single extends Composer
 
       ob_flush();
       flush();
+      unset($data);
       gc_collect_cycles();
     }
 
