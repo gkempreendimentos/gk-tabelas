@@ -223,7 +223,7 @@ class Single extends Composer
         }
       }
 
-      $pdf->ColoredTable($headers, $data);
+      $pdf->ColoredTable($headers, $filtered_data);
 
       foreach (get_field('plans') as $plan) {
         if ($plan['plan_image'] && $plan['tower'] === $combination['tower'] && $plan['type'] === $combination['type']) {
