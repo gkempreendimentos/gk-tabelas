@@ -50,7 +50,7 @@
         space_dashboard
       </i>
       <span>Planta</span>
-      <strong><a href="{{ $item['Planta'] }}">Visualizar planta</a></strong>
+      <strong><a href="{{ $item['Planta'] }}" data-fancybox="{{ sanitize_title("{$item['Torre']} - {$item['Tipo']}")}}" data-caption="{{ $item['Apartamento'] }} - {{ $item['Torre' ]}} - {{ $item['Tipo'] }}">Visualizar planta</a></strong>
     </li>
   </ul>
 </div>
