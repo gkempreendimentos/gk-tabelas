@@ -200,8 +200,6 @@ class Single extends Composer
     $margins = $pdf->getMargins();
     $usableWidth = $pageWidth - $margins['left'] - $margins['right'];
 
-    static $image_cache = [];
-
     foreach ($combinations as $combination)
     {
       $pdf->AddPage();
@@ -225,21 +223,12 @@ class Single extends Composer
           $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $plan['plan_image']['sizes']['large']);
 
           if (!isset($image_cache[$image_path])) {
-            $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 72, '', false, false, 0, false, false, false);
-            $image_cache[$image_path] = true;
-            $pdf->clearImageCache();
+            // $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 72, '', false, false, 0, false, false, false);
           }
         }
       }
 
       $pdf->MultiCell($usableWidth, 5, str_replace('<br />', '', get_field('pdf_obs', 'options')), 0, 'L', 0, 0, 8, 260, true);
-
-      error_log("Memória após {$combination['tower']} - {$combination['type']}: " . round(memory_get_usage(true) / 1048576, 2) . "MB");
-
-      ob_flush();
-      flush();
-      unset($data);
-      gc_collect_cycles();
     }
 
 
