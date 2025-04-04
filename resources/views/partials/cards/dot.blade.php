@@ -14,7 +14,7 @@
   }
 @endphp
 <div class="map-dots__item {{ $status }}" style="--row: {{ $row }}; --col: {{ $col }}">
-  <span class="map-dots__button" role="button" aria-label="Abrir detalhes" data-toggle="dot-{{ $item['Apartamento'] }}">{{ $item['Apartamento'] }}</span>
+  <span title="Abrir detalhes da unidade {{ $item['Apartamento'] }}" class="map-dots__button" role="button" aria-label="Abrir detalhes" data-toggle="dot-{{ $item['Apartamento'] }}">{{ $item['Apartamento'] }}</span>
   <ul class="map-info">
     <li>
       <i aria-hidden="true" class="material-symbols-outlined">
