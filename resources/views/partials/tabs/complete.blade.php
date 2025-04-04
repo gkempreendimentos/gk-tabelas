@@ -1,8 +1,8 @@
 @php
-  $tower = request()->get('tower', 'Torre A');
-  $type = request()->get('type', 'Pvto Tipo');
-  $cols = 0;
   $plans = get_field('plans');
+  $tower = request()->get('tower', $plans[0]['tower']);
+  $type = request()->get('type', $plans[0]['type']);
+  $cols = 0;
 @endphp
 
 <section class="map">
