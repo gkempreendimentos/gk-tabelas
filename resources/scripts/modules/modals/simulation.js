@@ -55,7 +55,7 @@ export const simulation = () => {
     const installments =
       (storage.price - entry - booster) / storage.installments;
     const $buttonWpp = document.querySelector('[data-calc="whatsapp"]');
-    const message = `Segue sua simulação de compra:%0A%0A💰 *Valor Total:* ${mask.currency(storage.price)}%0A%0A🔹 *Entrada (65%):* ${mask.currency(entry)}%0A%0A🔹 *13 reforços:* ${mask.currency(booster)} cada%0A%0A🔹 *100 parcelas:* ${mask.currency(installments)}/mês`;
+    const message = `Segue sua simulação de compra:%0A%0A💰 *Valor Total:* ${mask.currency(storage.price)}%0A%0A🔹 *Entrada (${storage.entry}%):* ${mask.currency(entry)}%0A%0A🔹 *${storage.boosterQuantity} reforços:* ${mask.currency(booster)} cada%0A%0A🔹 *${storage.installments} parcelas:* ${mask.currency(installments)}/mês`;
     $buttonWpp.href = `https://api.whatsapp.com/send?text=${message}`;
 
     const $entry = document.querySelector('[data-calc="entry"]');

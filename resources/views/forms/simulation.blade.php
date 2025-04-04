@@ -30,7 +30,7 @@
             <strong data-calc="booster"></strong>
           </div>
           <div class="form-control__wrapper">
-            <input class="form-number" type="number" name="boosterQuantity" id="boosterQuantity" min="1" value="10">
+            <input class="form-number" type="number" name="boosterQuantity" id="boosterQuantity" min="1" value="" placeholder="10">
             <input class="form-input" type="text" name="boosterTotal" placeholder="R$ 100.000,00" id="boosterTotal" data-mask="currency">
           </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="form-control">
           <label for="installments" class="form-label">Parcelas</label>
           <div class="form-control__wrapper">
-            <input class="form-number" type="number" name="installments" id="installments" min="1" value="100">
+            <input class="form-number" type="number" name="installments" id="installments" min="1" value="" placeholder="100">
             <div class="form-total">
               <strong data-calc="installments">R$ 17.000,00</strong>
               <span>por mês</span>
