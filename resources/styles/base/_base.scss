@@ -216,3 +216,17 @@ p {
 	flex-direction: column;
   flex: 1;
 }
+
+.fancybox__caption .button.-full {
+  --border-color: var(--color-primary);
+  --hover-border-color: var(--color-primary-tint);
+  --active-border-color: var(--color-primary-shade);
+  --color: var(--color-dark-tint);
+  --hover-color: var(--color-dark-tint);
+  --active-color: var(--color-dark-tint);
+  --bg-color: var(--color-primary);
+  --hover-bg-color: var(--color-primary-tint);
+  --active-bg-color: var(--color-primary-shade);
+
+  padding: 0 16px;
+}

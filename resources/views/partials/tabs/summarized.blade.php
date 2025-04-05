@@ -34,7 +34,7 @@
 
           @foreach ($row as $key => $value)
             @if ($key === 'Planta')
-              <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}"><a href="{{ $value }}" data-fancybox="summary" data-caption="{{ $row['Apartamento'] }} - {{ $row['Torre' ]}} - {{ $row['Tipo'] }}">Visualizar planta</a></td>
+              <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}"><a href="{{ $value }}" data-fancybox="summary" data-caption="<button onclick='window.open(&quot;{{ $value }}&quot;, &quot;_blank&quot;)'>⬇️ Baixar imagem</button>">Visualizar planta</a></td>
             @elseif ($key === 'Preço')
               <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}">
                 {{ $value }}

@@ -61,7 +61,7 @@
       @foreach ($plans as $plan)
         @if ($plan['tower'] === $tower && $plan['type'] === $type)
           <figure class="map-plan">
-            <img data-fancybox src="{{ $plan['plan_image']['url'] }}" alt="Planta do emprendimento ">
+            <img data-fancybox src="{{ $plan['plan_image']['url'] }}" data-caption="<button class='button -full' onclick='window.open(&quot;{{ $item['Planta'] }}&quot;, &quot;_blank&quot;)'><span class='material-symbols-outlined'>download</span> Baixar imagem</button>" alt="Planta do emprendimento ">
           </figure>
         @endif
       @endforeach
