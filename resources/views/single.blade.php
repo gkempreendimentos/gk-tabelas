@@ -48,12 +48,12 @@
     <h3 class="section-title">Download dos materiais</h3>
     <ul class="list -materials">
       <li>
-        <a href="{{ $table['data']['pdf'] }}" target="_blank" rel="noopener noreferrer">
+        <button onclick="downloadImage('{{ $table['data']['pdf'] }}', '{{ $data['title'] }}.pdf')" target="_blank" rel="noopener noreferrer">
           <i aria-hidden="true" class="material-symbols-outlined">
             download
           </i>
           <strong>Tabela Resumida do empreendimento {{ $data['title'] }}</strong>
-        </a>
+        </button>
       </li> 
       @foreach ($data['materials'] as $material)
         <li>
