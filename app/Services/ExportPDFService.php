@@ -125,8 +125,6 @@ class ExportPDFService
       $pdf->MultiCell($usableWidth, 5, str_replace('<br />', '', get_field('pdf_obs')), 0, 'L', 0, 0, 8, 260, true);
 
       unset($filtered_data);
-      ob_flush();
-      flush();
       gc_collect_cycles();
     }
 
