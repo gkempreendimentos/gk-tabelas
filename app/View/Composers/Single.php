@@ -4,7 +4,7 @@ namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
 use App\Services\GoogleSheetsService;
-use App\Controllers\TowerCombinations;
+use App\Helpers\TowerCombinations;
 
 class Single extends Composer
 {

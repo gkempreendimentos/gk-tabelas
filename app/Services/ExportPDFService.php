@@ -2,7 +2,7 @@
 
 namespace App\Services;
 use TCPDF;
-use App\Controllers\TowerCombinations;
+use App\Helpers\TowerCombinations;
 
 
 class MYPDF extends TCPDF {
