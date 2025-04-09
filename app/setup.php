@@ -121,3 +121,15 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer',
     ] + $config);
 });
+
+/**
+ * Export PDF on save_post
+ * 
+ */
+
+add_action('save_post', function ($post_id) {
+    if (get_post_type($post_id) !== 'empreendimento') return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    \App\Services\ExportPDFService::export($post_id);
+}, 20);

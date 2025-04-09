@@ -3,55 +3,8 @@
 namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
-use TCPDF;
-
-class MYPDF extends TCPDF {
-
-  // Colored table
-  public function ColoredTable($header,$data) {
-    // Colors, line width and bold font
-    $this->SetFillColor(33, 43, 44);
-    $this->SetTextColor(255);
-    $this->SetDrawColor(8,19,20);
-    $this->SetLineWidth(0.3);
-    $this->SetFont('helvetica', '', 10);
-
-    // Header
-    $num_headers = count($header);
-    for($i = 0; $i < $num_headers; ++$i) {
-      if (!in_array($header[$i], ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid'])) {
-        $this->Cell(38.5, 5, $header[$i], 1, 0, 'C', 1);
-      }
-    }
-    $this->Ln();
-    // Color and font restoration
-    $this->SetFillColor(224, 235, 255);
-    $this->SetTextColor(0);
-    $this->SetFont('');
-    // Data
-    $fill = 0;
-    $w = [30, ];
-    foreach($data as $row) {
-      foreach($row as $key => $value) {
-        if ($key === 'Planta') {
-          $this->Cell(38.5, 5, 'Ver planta', 1, 0, 'C', 1, $value);
-        }
-
-        if (!in_array($key, ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid', 'Planta'])) {
-          $this->Cell(38.5, 5, $value, 1, 0, 'C', $fill);
-        } 
-      }
-
-      $this->Ln();
-    }
-    $this->Cell(100, 0, '', 'T');
-  }
-
-  public function clearImageCache() {
-    $this->imagekeys = [];
-  }
-}
-
+use App\Services\GoogleSheetsService;
+use App\Controllers\TowerCombinations;
 
 class Single extends Composer
 {
@@ -169,120 +122,17 @@ class Single extends Composer
   }
 
   /**
-   * Export PDF
-   * 
-   * @param table
-   * @param combinations
-   * @param headers
-   * @return avoid
-   */
-  function exportPDF($table, $combinations, $headers)
-  {
-    $data = $this->getData();
-    $upload_dir = wp_get_upload_dir();
-
-    $date = date('Y-m-d');
-    $filename = "{$data['title']}-{$date}.pdf";
-    $pdf_path = $upload_dir['path'] . "/{$filename}";
-    $pdf_url = $upload_dir['url'] . "/{$filename}";
-    $logo_path = asset('images/pdf_logo.jpg')->path();
-
-    if (file_exists($pdf_path)) {
-      return home_url(str_replace(ABSPATH, '', $pdf_path));
-    }
-
-    $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-    $pdf->SetCreator(PDF_CREATOR);
-    $pdf->SetAuthor('GK Empreendimentos');
-    $pdf->SetTitle("Tabela Resumida - {$data['title']}");
-    $pdf->SetAutoPageBreak(TRUE, 10);
-    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-    $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-    $pdf->SetHeaderData($logo_path, 13, "Tabela Resumida - {$data['title']}", 'GK Empreendimentos', array(8,19,20), array(8,19,20));
-    $pdf->setFooterData(array(8,19,20), array(8,19,20));
-    $pdf->SetMargins(8, 16, 8);
-    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-    $pageWidth = $pdf->getPageWidth();
-    $margins = $pdf->getMargins();
-    $usableWidth = $pageWidth - $margins['left'] - $margins['right'];
-
-    foreach ($combinations as $combination)
-    {
-      $filtered_data = [];
-
-      foreach($table as $row)
-      {
-        if ($row['Disponibilidade'] === 'DISPONÍVEL' && $row['Torre'] === $combination['tower'] && $row['Tipo'] === $combination['type'])
-        {
-          $filtered_data[] = $row;
-        }
-      }
-
-      if (empty($filtered_data)) {
-        continue;
-      }
-
-      $pdf->AddPage();
-      $pdf->SetFont('helvetica', 'B', 16);
-      $pdf->Cell(0, 16, "{$combination['tower']} - Imóvel {$combination['type']}", 0, 1, 'C');
-
-      $pdf->ColoredTable($headers, $filtered_data);
-
-      foreach (get_field('plans') as $plan) {
-        if ($plan['plan_image'] && $plan['tower'] === $combination['tower'] && $plan['type'] === $combination['type']) {
-          $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $plan['plan_image']['sizes']['large']);
-
-          if (!isset($image_cache[$image_path])) {
-            $pdf->Image($image_path, 8, 150, $usableWidth, 0, $plan['plan_image']['subtype'], '', '', true, 72, '', false, false, 0, false, false, false);
-          }
-        }
-      }
-
-      $pdf->MultiCell($usableWidth, 5, str_replace('<br />', '', get_field('pdf_obs')), 0, 'L', 0, 0, 8, 260, true);
-
-      unset($filtered_data);
-      ob_flush();
-      flush();
-      gc_collect_cycles();
-    }
-
-
-    $pdf->Output($pdf_path, 'F');
-    
-    return home_url(str_replace(ABSPATH, '', $pdf_path));
-  }
-
-  /**
    * Return google spreadsheet by ID
    * 
    */
   public function getTable()
   {
-    $api_key = get_field('api_google', 'options');
-    $spreadsheet_id = get_field('spreadsheet_id');
-    $range = get_field('spreadsheet_range');
-
-    if (!$spreadsheet_id && !$range) {
-      return;
-    }
-
+    $data = GoogleSheetsService::getSheetData(get_the_ID());
     $page = request()->get('pagina', 1);
     $itemsPerPage = request()->get('limit', 10);
 
-    $url = "https://sheets.googleapis.com/v4/spreadsheets/{$spreadsheet_id}/values/{$range}?key={$api_key}";
-
-    $response = wp_remote_get($url);
-
-    if (is_wp_error($response)) {
-      return 'Erro ao buscar dados da planilha';
-    }
-
-    $body = wp_remote_retrieve_body($response);
-    $data = json_decode($body, true);
-
     if (!isset($data['values'])) {
-      return 'Nenhum dado encontrado';
+      return;
     }
 
     $headers = array_shift($data['values']);
@@ -296,36 +146,15 @@ class Single extends Composer
     $offset = ($page - 1) * $itemsPerPage;
     $paginatedData = array_slice($summarizedData, $offset, $itemsPerPage);
 
-    $towers = [];
-    $types = [];
-    $towerTypeCombinations = [];
-    $max_cols = 0;
-
-    foreach ($formattedData as $ap) {
-      $towers[] = $ap["Torre"];
-      $types[] = $ap["Tipo"];
-    }
-
-    $towers = array_unique($towers);
-    $types = array_unique($types);
-    
-    foreach ($towers as $tower) {
-      foreach ($types as $type) {
-        $towerTypeCombinations[] = [
-          'tower' => $tower,
-          'type' => $type
-        ];
-      }
-    }
+    $combinations = TowerCombinations::doCombinations($formattedData);
 
     return [
       'headers' => $headers,
       'data' => [
         'complete' => $formattedData,
         'summary' => $paginatedData,
-        'towers' => $towers,
-        'types' => $types,
-        'pdf' => $this->exportPDF($formattedData, $towerTypeCombinations, $headers)
+        'towers' => $combinations['towers'],
+        'types' => $combinations['types']
       ],
       'pagination' => [
         'total' => $totalItems,

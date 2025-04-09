@@ -195,17 +195,45 @@
     position: relative;
     display: block;
     margin: 48px auto;
-    transition: opacity var(--transition);
-    cursor: zoom-in;
-    
-    &:hover {
-      opacity: .7;
+
+    img {
+      display: block;
+      cursor: zoom-in;
     }
     
-    img {
+    &__full {
       width: 100%;
       height: auto;
       display: block;
+      transition: opacity var(--transition);
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    &__thumb {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: auto;
+      border: 8px solid var(--color-light-tint);
+      box-shadow: -8px -8px 8px rgba(0 0 0 / 10%);
+      transition: width var(--transition), box-shadow var(--transition);
+
+      @media (width >= $tablet) {
+        width: 30%;
+      }
+      
+      &:hover {
+        width: 75%;
+        box-shadow: -16px -16px 16px rgba(0 0 0 / 15%);
+
+        @media (width >= $tablet) {
+          width: 50%;
+        }
+      }
     }
 
   }
