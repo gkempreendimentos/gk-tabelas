@@ -131,7 +131,7 @@ class ExportPDFService
     }
 
     $pdf->Output($pdf_path, 'F');
-    update_field('pdf_table', $pdf_url, $post_id);
+    update_field('pdf_table', str_replace('http', 'https', $pdf_url), $post_id);
     return home_url(str_replace(ABSPATH, '', $pdf_path));
   }
 }
