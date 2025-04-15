@@ -7,4 +7,17 @@
   padding: 32px;
   background-color: var(--color-dark);
   color: var(--color-light-tint);
+
+  small {
+    color: rgba(255 255 255 / 50%);
+
+    a {
+      text-decoration: underline;
+      color: currentColor;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
