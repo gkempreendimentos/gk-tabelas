@@ -36,7 +36,7 @@ class MYPDF extends TCPDF {
            $isUnavailable = $row['Disponibilidade'] && $value === 'VENDIDO';
           if ($key === 'Preço') {
             $price = $isUnavailable ? 'Vendido' : $value;
-            $this->Cell(38.5, 5, $price, 1, 0, 'C', $fill);
+            $this->Cell(38.5, 4, $price, 1, 0, 'C', $fill);
             }
           if ($key === 'Planta') {
           $this->Cell(38.5, 4, 'Ver planta', 1, 0, 'C', 1, $value);
