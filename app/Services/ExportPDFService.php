@@ -19,7 +19,7 @@ class MYPDF extends TCPDF {
     // Header
     $num_headers = count($header);
     for($i = 0; $i < $num_headers; ++$i) {
-      if (!in_array($header[$i], ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid'])) {
+      if (!in_array($header[$i], ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid', 'Preço'])) {
         $this->Cell(38.5, 5, $header[$i], 1, 0, 'C', 1);
       }
     }
