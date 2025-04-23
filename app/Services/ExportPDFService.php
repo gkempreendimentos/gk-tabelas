@@ -38,8 +38,11 @@ class MYPDF extends TCPDF {
         }
 
         if (!in_array($key, ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid', 'Planta'])) {
+          if ($key === 'Preço' && $disponibilidade !== 'disponivel') {
+            $value = 'VENDIDO';
+          }
           $this->Cell(38.5, 5, $value, 1, 0, 'C', $fill);
-        } 
+        }
       }
 
       $this->Ln();
