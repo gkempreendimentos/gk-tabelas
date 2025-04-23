@@ -14,13 +14,13 @@ class MYPDF extends TCPDF {
     $this->SetTextColor(255);
     $this->SetDrawColor(8,19,20);
     $this->SetLineWidth(0.3);
-    $this->SetFont('helvetica', '', 10);
+    $this->SetFont('helvetica', '', 8);
 
     // Header
     $num_headers = count($header);
     for($i = 0; $i < $num_headers; ++$i) {
       if (!in_array($header[$i], ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid'])) {
-        $this->Cell(38.5, 5, $header[$i], 1, 0, 'C', 1);
+        $this->Cell(38.5, 4, $header[$i], 1, 0, 'C', 1);
       }
     }
     $this->Ln();
