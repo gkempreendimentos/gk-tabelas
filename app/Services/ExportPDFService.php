@@ -95,8 +95,7 @@ class ExportPDFService
 
       foreach($table as $row)
       {
-        if (sanitize_title($row['Torre'] === $combination['tower'] && $row['Tipo'] === $combination['type'])
-            //removed filter [$row['Disponibilidade']) === 'disponivel' &&] from beginning of condition on line above
+        if (sanitize_title($row['Torre'] === $combination['tower'] && $row['Tipo'] === $combination['type']))
         {
           $filtered_data[] = $row;
         }
