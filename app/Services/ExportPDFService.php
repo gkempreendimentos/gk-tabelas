@@ -33,7 +33,7 @@ class MYPDF extends TCPDF {
     $w = [30, ];
     foreach($data as $row) { 
       foreach($row as $key => $value) {
-           $isUnavailable = $key['Disponibilidade'] && $value === 'VENDIDO';
+           $isUnavailable = $row['Disponibilidade'] && $value === 'VENDIDO';
           if ($key === 'Preço') {
             $price = $isUnavailable ? 'Vendido' : $value;
             $this->Cell(38.5, 5, $price, 1, 0, 'C', $fill);
