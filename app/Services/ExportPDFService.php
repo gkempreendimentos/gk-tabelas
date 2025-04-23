@@ -95,8 +95,11 @@ class ExportPDFService
 
       foreach($table as $row)
       {
-        if (sanitize_title($row['Torre'] === $combination['tower'] && $row['Tipo'] === $combination['type']))
-        {
+        if ($row['Torre'] === $combination['tower'] && $row['Tipo'] === $combination['type']) {
+          if (sanitize_title($row['Disponibilidade']) !== 'disponivel') {
+            // Replace price value (assuming the column is named 'Preço') with 'Disponibilidade'
+            $row['Preço'] = $row['Disponibilidade'];
+          }
           $filtered_data[] = $row;
         }
       }
