@@ -19,8 +19,11 @@ class MYPDF extends TCPDF {
     // Header
     $num_headers = count($header);
     for($i = 0; $i < $num_headers; ++$i) {
-      if (!in_array($header[$i], ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid'])) {
-        $this->Cell(38.5, 5, $header[$i], 1, 0, 'C', 1);
+      if (!in_array($header[$i], ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid']))  {
+      if ($key === 'Preço' && $disponibilidade !== 'disponivel') {
+        $value = 'VENDIDO';
+      }
+      $this->Cell(38.5, 5, $value, 1, 0, 'C', $fill);
       }
     }
     $this->Ln();
@@ -32,6 +35,7 @@ class MYPDF extends TCPDF {
     $fill = 0;
     $w = [30, ];
     foreach($data as $row) {
+        $disponibilidade = sanitize_title($row['Disponibilidade'] ?? '');
       foreach($row as $key => $value) {
         if ($key === 'Planta') {
           $this->Cell(38.5, 5, 'Ver planta', 1, 0, 'C', 1, $value);
