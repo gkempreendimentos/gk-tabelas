@@ -31,14 +31,14 @@ class MYPDF extends TCPDF {
     // Data
     $fill = 0;
     $w = [30, ];
-    foreach($data as $row) {
-        $isUnavailable = $key['Disponibilidade'] && $value === 'VENDIDO';
+    foreach($data as $row) { 
       foreach($row as $key => $value) {
+           $isUnavailable = $key['Disponibilidade'] && $value === 'VENDIDO';
           if ($key === 'Preço') {
             $price = $isUnavailable ? 'Vendido' : $value;
             $this->Cell(38.5, 5, $price, 1, 0, 'C', $fill);
             }
-        if ($key === 'Planta') {
+          if ($key === 'Planta') {
           $this->Cell(38.5, 5, 'Ver planta', 1, 0, 'C', 1, $value);
         }
 
