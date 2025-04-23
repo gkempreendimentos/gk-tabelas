@@ -42,7 +42,7 @@ class MYPDF extends TCPDF {
           $this->Cell(38.5, 5, 'Ver planta', 1, 0, 'C', 1, $value);
         }
 
-        if (!in_array($key, ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid', 'Planta'])) {
+        if (!in_array($key, ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid', 'Planta','Preço'])) {
           if ($key === 'Preço' && $disponibilidade !== 'disponivel') {
             $value = $disponibilidade;
           }
