@@ -31,6 +31,7 @@ class MYPDF extends TCPDF {
     // Data
     $fill = 0;
     $w = [30, ];
+    $bottomY = $pdf->getPageHeight() - $pdf->getFooterMargin() - 10; 
     foreach($data as $row) { 
       foreach($row as $key => $value) {
            $isUnavailable = $row['Disponibilidade'] && $value === 'VENDIDO';
