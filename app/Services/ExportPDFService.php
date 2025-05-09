@@ -134,7 +134,7 @@ class ExportPDFService
         }
       }
 
-      $bottomY = $pdf->getPageHeight() - $pdf->getFooterMargin() - 10; 
+      $bottomY = $pdf->getPageHeight() - $pdf->getFooterMargin() - 20; 
       $pdf->MultiCell($usableWidth, 5, str_replace('<br />', '', get_field('pdf_obs')), 0, 'L', 0, 0, 8, $bottomY, true);
 
       unset($filtered_data);
