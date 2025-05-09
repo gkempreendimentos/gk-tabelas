@@ -88,7 +88,8 @@ class ExportPDFService
     $pdf->SetAutoPageBreak(TRUE, 10);
     $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
     $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-    $pdf->SetHeaderData($logo_path, 13, "Tabela Resumida - {$title}", 'GK Empreendimentos', array(8,19,20), array(8,19,20));
+    $currentDate = date('d/m/Y');
+    $pdf->SetHeaderData($logo_path, 13, "Tabela Resumida - {$title} - {$currentDate}", 'GK Empreendimentos', array(8,19,20), array(8,19,20));
     $pdf->setFooterData(array(8,19,20), array(8,19,20));
     $pdf->SetMargins(8, 16, 8);
     $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
