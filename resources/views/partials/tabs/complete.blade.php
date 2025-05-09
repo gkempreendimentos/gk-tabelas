@@ -64,7 +64,7 @@
             <img data-fancybox src="{{ $plan['plan_image']['url'] }}" class="map-plan__full" alt="Planta do emprendimento">
             
             @if ($plan['plan_map'])
-            <img data-fancybox src="{{ $plan['plan_map']['url'] }}" style="max-width: 20vw; height: auto;" class="map-plan__thumb" alt="Mapa do emprendimento">
+            <img data-fancybox src="{{ $plan['plan_map']['url'] }}" style="max-width: 15vw; height: auto;" class="map-plan__thumb" alt="Mapa do emprendimento">
             @endif
           </figure>
         @endif
