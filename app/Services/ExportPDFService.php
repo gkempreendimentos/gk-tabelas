@@ -129,7 +129,7 @@ class ExportPDFService
           $image_path = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $image['sizes']['large']);
 
           if (!isset($image_cache[$image_path])) {
-            $pdf->Image($image_path, 8, 150, $usableWidth, 0, $image['subtype'], '', '', true, 72, '', false, false, 0, false, false, false);
+            $pdf->Image($image_path, 8, 150, $usableWidth, 0, $image['subtype'], '', '', true, 300, '', false, false, 0, false, false, false);
           }
         }
       }
