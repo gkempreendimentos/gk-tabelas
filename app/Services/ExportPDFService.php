@@ -31,7 +31,6 @@ class MYPDF extends TCPDF {
     // Data
     $fill = 0;
     $w = [30, ];
-    $bottomY = $pdf->getPageHeight() - $pdf->getFooterMargin() - 10; 
     foreach($data as $row) { 
       foreach($row as $key => $value) {
            $isUnavailable = $row['Disponibilidade'] && $value === 'VENDIDO';
@@ -135,6 +134,7 @@ class ExportPDFService
         }
       }
 
+      $bottomY = $pdf->getPageHeight() - $pdf->getFooterMargin() - 10; 
       $pdf->MultiCell($usableWidth, 5, str_replace('<br />', '', get_field('pdf_obs')), 0, 'L', 0, 0, 8, $bottomY, true);
 
       unset($filtered_data);
