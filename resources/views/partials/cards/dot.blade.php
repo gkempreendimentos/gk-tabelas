@@ -50,7 +50,20 @@
         space_dashboard
       </i>
       <span>Planta</span>
-      <strong><a href="{{ $item['Planta'] }}" data-fancybox="{{ sanitize_title("{$item['Torre']} - {$item['Tipo']}")}}" data-caption="<button class='button -full' onclick='downloadImage(&quot;{{ $item['Planta'] }}&quot;, &quot;{{ $item['Apartamento'] }}.jpg&quot;)'><span class='material-symbols-outlined'>download</span> Baixar imagem</button>">Visualizar planta</a></strong>
+      @php
+        $planta = \App\Helpers\PlantaHelper::parse($item['Planta']);
+      @endphp
+      <strong>
+        @if ($planta)
+          @if ($planta['is_direct_file'])
+            <a href="{{ $planta['url'] }}" data-fancybox="{{ sanitize_title("{$item['Torre']} - {$item['Tipo']}")}}" data-caption="<button class='button -full' onclick='downloadImage(&quot;{{ $planta['url'] }}&quot;, &quot;{{ $item['Apartamento'] }}.jpg&quot;)'><span class='material-symbols-outlined'>download</span> Baixar imagem</button>">{{ $planta['label'] }}</a>
+          @else
+            <a href="{{ $planta['url'] }}" target="_blank" rel="noopener noreferrer">{{ $planta['label'] }}</a>
+          @endif
+        @else
+          -
+        @endif
+      </strong>
     </li>
   </ul>
 </div>
