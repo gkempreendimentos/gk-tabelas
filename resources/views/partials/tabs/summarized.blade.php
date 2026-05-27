@@ -34,7 +34,20 @@
 
           @foreach ($row as $key => $value)
             @if ($key === 'Planta')
-              <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}"><a href="{{ $value }}" data-fancybox="summary" data-caption="<button class='button -full' onclick='downloadImage(&quot;{{ $value }}&quot;, &quot;{{ $row['Apartamento'] }}.jpg&quot;)'><span class='material-symbols-outlined'>download</span> Baixar imagem</button>">Visualizar planta</a></td>
+              @php
+                $planta = \App\Helpers\PlantaHelper::parse($value);
+              @endphp
+              <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}">
+                @if ($planta)
+                  @if ($planta['is_direct_file'])
+                    <a href="{{ $planta['url'] }}" data-fancybox="summary" data-caption="<button class='button -full' onclick='downloadImage(&quot;{{ $planta['url'] }}&quot;, &quot;{{ $row['Apartamento'] }}.jpg&quot;)'><span class='material-symbols-outlined'>download</span> Baixar imagem</button>">{{ $planta['label'] }}</a>
+                  @else
+                    <a href="{{ $planta['url'] }}" target="_blank" rel="noopener noreferrer">{{ $planta['label'] }}</a>
+                  @endif
+                @else
+                  -
+                @endif
+              </td>
             @elseif ($key === 'Preço')
               <td class="{{ $colIndex == 0 ? 'column-primary' : '' }}" data-colname="{{ $key }}">
                 {{ $value }}
