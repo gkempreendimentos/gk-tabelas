@@ -39,8 +39,11 @@ class MYPDF extends TCPDF {
             $this->Cell(38.5, 4, $price, 1, 0, 'C', $fill);
             }
           if ($key === 'Planta') {
-          $this->Cell(38.5, 4, 'Ver planta', 1, 0, 'C', 1, $value);
-        }
+            $planta = \App\Helpers\PlantaHelper::parse($value);
+            $pdfLabel = $planta ? $planta['label'] : 'Ver planta';
+            $pdfLink = $planta ? $planta['url'] : '';
+            $this->Cell(38.5, 4, $pdfLabel, 1, 0, 'C', 1, $pdfLink);
+          }
 
         if (!in_array($key, ['Disponibilidade', 'Torre', 'Tipo', 'Posição', 'Grid', 'Planta','Preço'])) {
           if ($key === 'Preço' && $disponibilidade !== 'disponivel') {
