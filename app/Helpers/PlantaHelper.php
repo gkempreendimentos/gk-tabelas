@@ -32,6 +32,13 @@ class PlantaHelper
             return null;
         }
 
+        // Normalize URL if it is an external domain without protocol (e.g., www.google.com or google.com)
+        if (!preg_match('/^(https?:\/\/|mailto:|tel:|#|\/)/i', $url)) {
+            if (strpos($url, '.') !== false && strpos($url, '@') === false) {
+                $url = 'https://' . $url;
+            }
+        }
+
         $parsedUrl = parse_url($url);
         $path = isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
         $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
