@@ -1,0 +1,61 @@
+/**
+ * Fluxo de pagamento esperado (referência) — página do empreendimento.
+ * Arquivo enfileirado à parte de propósito: entra sem precisar recompilar os bundles.
+ */
+
+.section.-flow {
+  margin-top: 32px;
+}
+
+.section.-flow .list.-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 16px;
+  list-style: none;
+  background-color: var(--color-light-tint);
+  border: 1px solid var(--color-light-shade);
+  border-radius: var(--radius-sm);
+}
+
+.section.-flow .flow-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 12px;
+  border-left: 3px solid var(--color-primary);
+}
+
+/* Texto longo (ex.: reforços) ocupa a linha inteira */
+.section.-flow .flow-item.-wide {
+  grid-column: 1 / -1;
+}
+
+.section.-flow .flow-item__label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-medium);
+}
+
+.section.-flow .flow-item__value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 130%;
+  color: var(--color-dark);
+}
+
+.section.-flow .flow-note {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  line-height: 150%;
+  color: var(--color-medium);
+}
+
+@media (width >= 768px) {
+  .section.-flow .flow-item__value {
+    font-size: 1.25rem;
+  }
+}

@@ -43,6 +43,8 @@
     @endif
   </div>
 
+  @include('partials.fluxo')
+
   @if ($data['materials'])
   <section class="section -materials">
     <h3 class="section-title">Download dos materiais</h3>

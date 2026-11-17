@@ -27,6 +27,7 @@ class Single extends Composer
       return [
         'data' => $this->getData(),
         'table' => $this->getTable(),
+        'fluxo' => \App\Helpers\FluxoPagamento::get(get_the_ID()),
       ];
   }
 

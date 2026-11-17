@@ -22,6 +22,16 @@ add_action('wp_enqueue_scripts', function () {
 
     if (is_single()) {
         bundle('single')->enqueue();
+
+        // Fluxo de pagamento esperado — CSS avulso (não passa pelo build).
+        if (file_exists($fluxo = get_theme_file_path('public/css/fluxo.css'))) {
+            wp_enqueue_style(
+                'gk-fluxo',
+                get_theme_file_uri('public/css/fluxo.css'),
+                [],
+                filemtime($fluxo)
+            );
+        }
     }
 }, 100);
 
