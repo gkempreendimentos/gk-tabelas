@@ -33,7 +33,7 @@
 }
 
 .section.-flow .flow-item__label {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -41,21 +41,21 @@
 }
 
 .section.-flow .flow-item__value {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 130%;
   color: var(--color-dark);
 }
 
 .section.-flow .flow-note {
-  margin-top: 10px;
-  font-size: 0.875rem;
-  line-height: 150%;
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  line-height: 145%;
   color: var(--color-medium);
 }
 
 @media (width >= 768px) {
   .section.-flow .flow-item__value {
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
   }
 }
